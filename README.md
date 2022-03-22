@@ -1,8 +1,7 @@
-<h1>Super Team 23</h1>
+# COMP3111 S2022 Team 23
 
-1. <h2>Forrest Li</h2>
-
-Group Members: <br>
-Forrest <br>
-Anna <br>
-Jiu Xiao <br>a
+## Forrest
+email: zfjiang | github: Forrest-J | dev branch: forrest_dev
+## Anna
+## Jiu Xiao
+email: hengjiuxiao | github: hengjuice | 
