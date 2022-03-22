@@ -1,8 +1,8 @@
-COMP3111
+<h1>Super Team 23</h1>
 
-Team 23
+1. <h2>Forrest Li</h2>
 
-Group Members:
-Forrest
-Anna
-Jiu Xiao
+Group Members: <br>
+Forrest <br>
+Anna <br>
+Jiu Xiao <br>
