@@ -1,8 +1,6 @@
-COMP3111
+# COMP3111 S2022 Team 23
 
-Team 23
-
-Group Members:
-Forrest
-Anna
-Jiu Xiao
+## Forrest
+email: zfjiang | github: Forrest-J | dev branch: forrest_dev
+## Anna
+## Jiu Xiao
