@@ -38,7 +38,9 @@ jacocoTestReport {
 		html.destination file("${buildDir}/jacocoHTML")
 	}
 }
-
+jacoco {
+    toolVersion = "0.8.7"
+}
 javafx {
 	version = "13.0.2"
 	modules = [ 'javafx.controls', 'javafx.fxml' ]
