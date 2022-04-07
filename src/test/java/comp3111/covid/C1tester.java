@@ -7,7 +7,7 @@ import org.junit.Test;
 
 //import UnitTestDemo.Library;
 
-public class unittester {
+public class C1tester {
 
 int[] arrAscending, arrDescending;
 
