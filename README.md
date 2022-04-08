@@ -7,3 +7,8 @@ email: zfjiang | github: Forrest-J | dev branch: forrest_dev </br> Task A1 & Tas
 email: alsthumann | github: AnnaThu | dev branch: anna_dev </br> Task C1 & Task C2
 ## 3. Jiu Xiao
 email: jxheng | github: hengjuice | dev branch: Jiu_dev </br> Task B1 & Task B2
+
+
+### Helpful Links
+#### TableView and TableColumn
+https://www.youtube.com/watch?v=fnU1AlyuguE 
