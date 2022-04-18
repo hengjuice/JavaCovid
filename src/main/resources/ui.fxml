@@ -85,12 +85,12 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <DatePicker layoutX="348.0" layoutY="114.0" prefHeight="25.0" prefWidth="175.0" />
+                              <DatePicker fx:id="endDatePicker" layoutX="348.0" layoutY="114.0" onAction="#saveEndDate" prefHeight="25.0" prefWidth="175.0" />
                               <ComboBox layoutX="348.0" layoutY="168.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" wrappingWidth="101.47003173828125" />
                               <Text layoutX="195.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Countries of Interest" wrappingWidth="139.47003173828125" />
-                              <Button layoutX="268.0" layoutY="228.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
-                              <DatePicker layoutX="348.0" layoutY="62.0" prefHeight="25.0" prefWidth="175.0" />
+                              <Button fx:id="buttonChartA" layoutX="268.0" layoutY="228.0" mnemonicParsing="false" onAction="#generateChart" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
+                              <DatePicker fx:id="startDatePicker" layoutX="348.0" layoutY="62.0" onAction="#saveStartDate" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" wrappingWidth="101.47003173828125" />
                               <Label layoutX="224.0" layoutY="22.0" prefHeight="17.0" prefWidth="423.0" text="Cumulative Confirmed COVID-19 cases (per 1M) by country" />
                            </children>
@@ -116,7 +116,7 @@
                               <ComboBox layoutX="348.0" layoutY="168.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" wrappingWidth="101.47003173828125" />
                               <Text layoutX="195.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Countries of Interest" wrappingWidth="139.47003173828125" />
-                              <Button layoutX="268.0" layoutY="228.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
+                              <Button fx:id="buttonChartB" layoutX="268.0" layoutY="228.0" mnemonicParsing="false" onAction="#generateChart" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
                               <DatePicker layoutX="348.0" layoutY="62.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" wrappingWidth="101.47003173828125" />
                               <Label layoutX="223.0" layoutY="22.0" prefHeight="17.0" prefWidth="325.0" text="Cumulative confirmed COVID-19 deaths (per 1M) by country" />
@@ -132,7 +132,7 @@
                               <ComboBox layoutX="348.0" layoutY="168.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" wrappingWidth="101.47003173828125" />
                               <Text layoutX="195.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Countries of Interest" wrappingWidth="139.47003173828125" />
-                              <Button layoutX="268.0" layoutY="228.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
+                              <Button fx:id="buttonChartC" layoutX="268.0" layoutY="228.0" mnemonicParsing="false" onAction="#generateChart" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
                               <DatePicker layoutX="348.0" layoutY="62.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" wrappingWidth="101.47003173828125" />
                               <Label layoutX="223.0" layoutY="22.0" prefHeight="17.0" prefWidth="273.0" text="Cumulative Rate of Vaccination against COVID-19" />
