@@ -1,5 +1,11 @@
 package comp3111.covid;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+
 
 /*
 Task C2: Generate data charts showing the cumulative rate of vaccination against COVID-19 by country
@@ -13,6 +19,19 @@ Output
 •	Label the x-axis and y-axis with proper scales
 •	Present data in coloured cumulative curves labelled with corresponding countries
 */
+
+/*
+Flow:
+
+Get the start date and end date
+
+
+ 
+ */
+
+
+
+
 
 public class C2_VaccinationsChart {
 
