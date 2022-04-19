@@ -1,7 +1,5 @@
 package comp3111.covid;
 
-import java.util.ArrayList;
-
 import org.apache.commons.csv.*;
 import edu.duke.*;
 
@@ -107,20 +105,5 @@ public class DataAnalysis {
 			
 			return oReport;
 	 }
-	 
-	 public static ArrayList<String> allCountriesArray(String dataset) {
-		 
-		 ArrayList<String> countries = new ArrayList<String>();
-		 
-			for (CSVRecord rec : getFileParser(dataset)) {
-				if (! countries.contains(rec.get("location"))) {
-					countries.add(rec.get("location"));
-					System.out.println(rec.get("location"));
-				}				
-				
-			}
-			return countries;
-	 }
-	 
  
 }

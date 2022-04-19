@@ -8,19 +8,6 @@ import java.util.List;
 import java.text.ParseException; 
 import java.text.SimpleDateFormat;
 
-/*
-Task C1: Generate data tables showing the rate of vaccination against COVID-19 by country
-
-Input
-•	Specify the date of interest
-•	Specify the countries of interest
-
-Output
-•	Label the data table with a proper title: "Rate of Vaccination against COVID-19 as of [Date of Interest]"
-•	Present data in 3 columns with proper headings of "Country", "Fully Vaccinated", and "Rate of Vaccination"
-•	Present data for the countries of interest in rows
-
-*/
 
 
 public class C1_VaccinationsTable {

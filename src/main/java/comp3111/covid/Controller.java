@@ -1,10 +1,8 @@
 package comp3111.covid;
 
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
@@ -16,18 +14,7 @@ import comp3111.covid.Chart;
 import comp3111.covid.InputChecker;
 import comp3111.covid.DataAnalysis;
 
-import javafx.fxml.Initializable;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-
-
-import comp3111.covid.DataAnalysis;
-
-
-
-public class Controller implements Initializable {
+public class Controller {
 
     @FXML
     private Button buttonConfirmedCases;
@@ -39,7 +26,6 @@ public class Controller implements Initializable {
     private Button buttonRateOfVaccination;
 
     @FXML
-    private ComboBox<String> comboBoxA1;
     public DatePicker endDatePicker;
 
     @FXML
@@ -72,28 +58,12 @@ public class Controller implements Initializable {
     @FXML
     private TextField textfieldISO;
     
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-    	String iDataset = textfieldDataset.getText();
-    	ArrayList<String> countries = DataAnalysis.allCountriesArray(iDataset);
-    	
-    	
-    	for (int i = 0; i < countries.size(); i++) {
-    		
-    		comboBoxA1.getItems().add(countries.get(i));
-    	}
-    	
-
-    }
-  
-
     @FXML
     private Button buttonChartA;
     @FXML
     private Button buttonChartB;
     @FXML
     private Button buttonChartC;
-
 
     @FXML
     void doConfirmedCases(ActionEvent event) {
