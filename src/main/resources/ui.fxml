@@ -9,10 +9,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.CheckComboBox?>
 
 <VBox prefHeight="679.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.covid.Controller">
   <children>
@@ -47,6 +49,8 @@
                               <ComboBox fx:id="comboBoxA1" layoutX="336.0" layoutY="112.0" prefWidth="150.0" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Cases" />
                               <Button layoutX="264.0" layoutY="167.0" mnemonicParsing="false" text="generate table" />
+                              <TableView fx:id="TableViewA" layoutY="214.0" prefHeight="436.0" prefWidth="719.0" />
+                              <CheckComboBox fx:id="checkCB" layoutX="486.0" layoutY="155.0" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -62,6 +66,7 @@
                               <ComboBox layoutX="336.0" layoutY="112.0" prefWidth="150.0" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Deaths" />
                               <Button layoutX="264.0" layoutY="167.0" mnemonicParsing="false" text="generate table" />
+                              <TableView fx:id="TableViewB" layoutX="2.0" layoutY="214.0" prefHeight="436.0" prefWidth="719.0" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -77,6 +82,7 @@
                               <ComboBox layoutX="336.0" layoutY="112.0" prefWidth="150.0" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Vaccinations" />
                               <Button layoutX="264.0" layoutY="167.0" mnemonicParsing="false" text="generate table" />
+                              <TableView fx:id="TableViewC" layoutY="214.0" prefHeight="436.0" prefWidth="719.0" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -104,7 +110,7 @@
                               <DatePicker fx:id="startDatePicker" layoutX="348.0" layoutY="62.0" onAction="#saveStartDate" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" wrappingWidth="101.47003173828125" />
                               <Label layoutX="224.0" layoutY="22.0" prefHeight="17.0" prefWidth="423.0" text="Cumulative Confirmed COVID-19 cases (per 1M) by country" />
-                              <LineChart layoutY="274.0" prefHeight="375.0" prefWidth="719.0">
+                              <LineChart fx:id="LineChartA" layoutY="274.0" prefHeight="375.0" prefWidth="719.0">
                                  <xAxis>
                                     <CategoryAxis side="BOTTOM" />
                                  </xAxis>
@@ -139,7 +145,7 @@
                               <DatePicker layoutX="348.0" layoutY="62.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" wrappingWidth="101.47003173828125" />
                               <Label layoutX="223.0" layoutY="22.0" prefHeight="17.0" prefWidth="325.0" text="Cumulative Confirmed COVID-19 deaths (per 1M) by country" />
-                              <LineChart layoutY="274.0" prefHeight="375.0" prefWidth="719.0">
+                              <LineChart fx:id="LineChartB" layoutY="274.0" prefHeight="375.0" prefWidth="719.0">
                                 <xAxis>
                                   <CategoryAxis side="BOTTOM" />
                                 </xAxis>
@@ -163,7 +169,7 @@
                               <DatePicker layoutX="348.0" layoutY="62.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" wrappingWidth="101.47003173828125" />
                               <Label layoutX="223.0" layoutY="22.0" prefHeight="17.0" prefWidth="273.0" text="Cumulative Rate of Vaccination against COVID-19" />
-                              <LineChart layoutY="274.0" prefHeight="375.0" prefWidth="719.0">
+                              <LineChart fx:id="LineChartC" layoutY="274.0" prefHeight="375.0" prefWidth="719.0">
                                  <xAxis>
                                     <CategoryAxis side="BOTTOM" />
                                  </xAxis>

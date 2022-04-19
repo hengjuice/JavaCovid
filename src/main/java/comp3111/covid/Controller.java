@@ -23,7 +23,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-
+import org.controlsfx.control.CheckComboBox;
 
 import comp3111.covid.DataAnalysis;
 
@@ -82,11 +82,22 @@ public class Controller implements Initializable {
     	
     	for (int i = 0; i < countries.size(); i++) {
     		
-    		comboBoxA1.getItems().add(countries.get(i));
+    		checkCB.getItems().add(countries.get(i));
     	}
     	
 
     }
+    
+//    public void initializeComboBox (URL url, ResourceBundle resourceBundle) {
+//    	String iDataset = textfieldDataset.getText();
+//    	ArrayList<String> countries = DataAnalysis.allCountriesArray(iDataset);
+//    	
+//    	
+//    	for (int i = 0; i < countries.size(); i++) {
+//    		
+//    		comboBoxA1.getItems().add(countries.get(i));
+//    	}
+//    }
   
 
     @FXML
@@ -112,6 +123,8 @@ public class Controller implements Initializable {
     @FXML
     private LineChart LineChartC;
     
+    @FXML
+    private CheckComboBox checkCB;
 
 
     @FXML
@@ -153,7 +166,6 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    // Incomplete
     void generateChart(ActionEvent event) {
     	
     	//String ID = (String) event.getSource();
