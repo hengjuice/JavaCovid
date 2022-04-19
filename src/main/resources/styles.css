@@ -1,0 +1,38 @@
+#buttonChartA {
+  -fx-font-family: "Lucida Console";
+  -fx-background-color: "white";
+}
+
+#buttonChartB {
+  -fx-font-family: "Lucida Console";
+  -fx-background-color: "white";
+}
+
+#buttonChartC {
+  -fx-font-family: "Lucida Console";
+  -fx-background-color: "white";
+}
+
+#buttonChartA:hover{
+  -fx-background-color: "#C9C9C9";
+}
+
+#buttonChartB:hover{
+  -fx-background-color: "#C9C9C9";
+}
+
+#buttonChartC:hover{
+  -fx-background-color: "#C9C9C9";
+}
+
+#buttonChartA:press{
+  -fx-background-color: "#404040";
+}
+
+#buttonChartB:press{
+  -fx-background-color: "#404040";
+}
+
+#buttonChartC:press{
+  -fx-background-color: "#404040";
+}
