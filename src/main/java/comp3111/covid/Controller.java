@@ -136,7 +136,7 @@ public class Controller implements Initializable {
     @FXML
     void generateChart(ActionEvent event) {
     	
-    	String ID = (String) event.getSource();
+    	//String ID = (String) event.getSource();
     	
     	LocalDate startDate = startDatePicker.getValue();
     	
@@ -161,7 +161,7 @@ public class Controller implements Initializable {
     	countries.add("Afghanistan");
     	
     	// Initialize Chart Object
-    	Chart chart = new Chart(ID, startDate, endDate, countries);
+    	//Chart chart = new Chart(ID, startDate, endDate, countries);
     	
     	
     }
