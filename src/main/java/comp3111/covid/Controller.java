@@ -4,6 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -117,11 +119,11 @@ public class Controller implements Initializable {
     
     // Charts
     @FXML
-    private LineChart LineChartA;
+    private LineChart<String, Number> LineChartA;
     @FXML
-    private LineChart LineChartB;
+    private LineChart<String, Number> LineChartB;
     @FXML
-    private LineChart LineChartC;
+    private LineChart<String, Number> LineChartC;
     
     @FXML
     private CheckComboBox checkCB;
@@ -194,7 +196,15 @@ public class Controller implements Initializable {
     	
     	// Initialize Chart Object
     	//Chart chart = new Chart(ID, startDate, endDate, countries);
+    	Series<String, Number> series = new XYChart.Series<String, Number>();
+    	series.getData().add(new XYChart.Data<String, Number>("Jan", 100));
+    	series.getData().add(new XYChart.Data<String, Number>("Feb", 60));
+    	series.getData().add(new XYChart.Data<String, Number>("Mar", 40));
+    	series.getData().add(new XYChart.Data<String, Number>("Apr", 150));
+    	series.getData().add(new XYChart.Data<String, Number>("May", 90));
+    	series.setName("No of cases");
     	
+    	LineChartA.getData().add(series);
     	
     }
     
