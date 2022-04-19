@@ -9,7 +9,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -43,33 +42,42 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="384.0" prefWidth="719.0">
                            <children>
                               <Label layoutX="79.0" layoutY="44.0" />
-                              <TextArea layoutX="14.0" layoutY="12.0" prefHeight="296.0" prefWidth="698.0" text="Task A1: Generate data tables showing the number of confirmed COVID-19 cases by country&#10;&#10;Input&#10;•&#9;Specify the date of interest&#10;•&#9;Specify the countries of interest&#10;&#10;Output&#10;•&#9;Label the data table with a proper title: &quot;Number of Confirmed COVID-19 Cases as of [Date of Interest]&quot;&#10;•&#9;Present data in 3 columns with proper headings of &quot;Country&quot;, &quot;Total Cases&quot;, and &quot;Total Cases (per 1M)&quot;&#10;•&#9;Present data for the countries of interest in rows&#10;&#10;" wrapText="true" />
+                              <Label layoutX="131.0" layoutY="61.0" text="select date" />
+                              <DatePicker layoutX="336.0" layoutY="57.0" />
+                              <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
+                              <ComboBox fx:id="comboBoxA1" layoutX="336.0" layoutY="112.0" prefWidth="150.0" />
+                              <Label layoutX="266.0" layoutY="26.0" text="Confirmed Cases" />
+                              <Button layoutX="264.0" layoutY="167.0" mnemonicParsing="false" text="generate table" />
                            </children>
                         </AnchorPane>
                     </content>
                   </Tab>
                 <Tab fx:id="tabReport2" text="Table B">
                   <content>
-                        <AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="384.0" prefWidth="719.0">
                            <children>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="722.0">
-                                 <children>
-                                    <TextArea layoutX="14.0" layoutY="14.0" prefHeight="315.0" prefWidth="695.0" text="Task B1: Generate data tables showing the number of confirmed COVID-19 deaths by country&#10;&#10;Input&#10;•&#9;Specify the date of interest&#10;•&#9;Specify the countries of interest&#10;&#10;Output&#10;•&#9;Label the data table with a proper title: &quot;Number of Confirmed COVID-19 Deaths as of [Date of Interest]&quot;&#10;•&#9;Present data in 3 columns with proper headings of &quot;Country&quot;, &quot;Total Deaths&quot;, and &quot;Total Deaths (per 1M)&quot;&#10;•&#9;Present data for the countries of interest in rows&#10;&#10;" wrapText="true" />
-                                 </children>
-                              </AnchorPane>
+                              <Label layoutX="79.0" layoutY="44.0" />
+                              <Label layoutX="131.0" layoutY="61.0" text="select date" />
+                              <DatePicker layoutX="336.0" layoutY="57.0" />
+                              <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
+                              <ComboBox layoutX="336.0" layoutY="112.0" prefWidth="150.0" />
+                              <Label layoutX="266.0" layoutY="26.0" text="Confirmed Deaths" />
+                              <Button layoutX="264.0" layoutY="167.0" mnemonicParsing="false" text="generate table" />
                            </children>
                         </AnchorPane>
                   </content>
                 </Tab>
                   <Tab fx:id="tabReport3" text="Table C">
                     <content>
-                        <AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="384.0" prefWidth="719.0">
                            <children>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="719.0">
-                                 <children>
-                                    <TextArea layoutX="14.0" layoutY="14.0" prefHeight="292.0" prefWidth="694.0" text="Task C1: Generate data tables showing the rate of vaccination against COVID-19 by country&#10;&#10;Input&#10;•&#9;Specify the date of interest&#10;•&#9;Specify the countries of interest&#10;&#10;Output&#10;•&#9;Label the data table with a proper title: &quot;Rate of Vaccination against COVID-19 as of [Date of Interest]&quot;&#10;•&#9;Present data in 3 columns with proper headings of &quot;Country&quot;, &quot;Fully Vaccinated&quot;, and &quot;Rate of Vaccination&quot;&#10;•&#9;Present data for the countries of interest in rows&#10;&#10;&#10;" wrapText="true" />
-                                 </children>
-                              </AnchorPane>
+                              <Label layoutX="79.0" layoutY="44.0" />
+                              <Label layoutX="131.0" layoutY="61.0" text="select date" />
+                              <DatePicker layoutX="336.0" layoutY="57.0" />
+                              <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
+                              <ComboBox layoutX="336.0" layoutY="112.0" prefWidth="150.0" />
+                              <Label layoutX="266.0" layoutY="26.0" text="Confirmed Vaccinations" />
+                              <Button layoutX="264.0" layoutY="167.0" mnemonicParsing="false" text="generate table" />
                            </children>
                         </AnchorPane>
                     </content>
