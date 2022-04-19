@@ -3,10 +3,12 @@ package comp3111.covid;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -93,6 +95,23 @@ public class Controller implements Initializable {
     private Button buttonChartB;
     @FXML
     private Button buttonChartC;
+    
+    // Tables
+    @FXML
+    private TableView TableViewA;
+    @FXML
+    private TableView TableViewB;
+    @FXML
+    private TableView TableViewC;
+    
+    // Charts
+    @FXML
+    private LineChart LineChartA;
+    @FXML
+    private LineChart LineChartB;
+    @FXML
+    private LineChart LineChartC;
+    
 
 
     @FXML
@@ -134,6 +153,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
+    // Incomplete
     void generateChart(ActionEvent event) {
     	
     	//String ID = (String) event.getSource();
