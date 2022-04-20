@@ -118,6 +118,7 @@
                                  </yAxis>
                               </LineChart>
                               <CheckComboBox fx:id="checkCBA2" layoutX="348.0" layoutY="168.0" />
+                              <Label fx:id="warningMessage" layoutX="268.0" layoutY="202.0" prefHeight="17.0" prefWidth="183.0" text="" />
                            </children>
                         </AnchorPane>
                     </content>

@@ -9,9 +9,12 @@ import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -157,6 +160,8 @@ public class Controller implements Initializable {
     @FXML
     private CheckComboBox checkCBC2;
 
+    @FXML
+    public Label warningMessage;
 
     @FXML
     void doConfirmedCases(ActionEvent event) {
@@ -203,6 +208,7 @@ public class Controller implements Initializable {
     @FXML
     void generateChart(ActionEvent event) {
     	
+    	LineChartA.getData().clear();
     	//String ID = (String) event.getSource();
     	
     	LocalDate startDate = startDatePicker.getValue();
@@ -217,14 +223,20 @@ public class Controller implements Initializable {
     	
     	// If there are errors, graphs will not be generated
     	if (!inputChecker.error_statements.isEmpty()) {
-    		inputChecker.printErrorStatements();
+    		//inputChecker.printErrorStatements();
+    		StringBuilder errs = new StringBuilder();
+    		for(String err: inputChecker.error_statements)
+        	{
+        		errs.append(err);
+        		errs.append('\n');
+        	}
+    		warningMessage.setWrapText(true);
+    		warningMessage.setText(errs.toString());
     		//Generate Error window
     		return;
     	}
-    	
-    	
 
-
+    	
     	
     	
     	// Get Countries Value
@@ -252,8 +264,5 @@ public class Controller implements Initializable {
     	
     	 */
     }
-    
-    
-    
 
 }
