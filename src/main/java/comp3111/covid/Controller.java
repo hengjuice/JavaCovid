@@ -84,11 +84,20 @@ public class Controller implements Initializable {
     	
     	for (int i = 0; i < countries.size(); i++) {
     		
-    		checkCB.getItems().add(countries.get(i));
+    		checkCBA.getItems().add(countries.get(i));
+    		checkCBB.getItems().add(countries.get(i));
+    		checkCBC.getItems().add(countries.get(i));
+    		
+    		checkCBA2.getItems().add(countries.get(i));
+    		checkCBB2.getItems().add(countries.get(i));
+    		checkCBC2.getItems().add(countries.get(i));
+    		
     	}
     	
 
     }
+    
+
     
 //    public void initializeComboBox (URL url, ResourceBundle resourceBundle) {
 //    	String iDataset = textfieldDataset.getText();
@@ -126,7 +135,19 @@ public class Controller implements Initializable {
     private LineChart<String, Number> LineChartC;
     
     @FXML
-    private CheckComboBox checkCB;
+    private CheckComboBox checkCBA;
+    @FXML
+    private CheckComboBox checkCBB;
+    @FXML
+    private CheckComboBox checkCBC;
+    
+    
+    @FXML
+    private CheckComboBox checkCBA2;
+    @FXML
+    private CheckComboBox checkCBB2;
+    @FXML
+    private CheckComboBox checkCBC2;
 
 
     @FXML
