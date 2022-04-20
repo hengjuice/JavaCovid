@@ -81,7 +81,6 @@ public class Controller implements Initializable {
     	String iDataset = textfieldDataset.getText();
     	ArrayList<String> countries = DataAnalysis.allCountriesArray(iDataset);
     	
-    	
     	for (int i = 0; i < countries.size(); i++) {
     		
     		checkCBA.getItems().add(countries.get(i));
@@ -227,6 +226,14 @@ public class Controller implements Initializable {
     	
     	LineChartA.getData().add(series);
     	
+    	
+    	/*
+    	
+    	for every country selected from combobox:
+    		add data from start date till end date into series
+    			plot the graph of that country's series
+    	
+    	 */
     }
     
     
