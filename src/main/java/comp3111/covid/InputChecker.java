@@ -124,6 +124,11 @@ public class InputChecker {
 		}
 	}
 	
+	ArrayList<String> getErrorStatements()
+	{
+		return error_statements;
+	}
+	
 	// Checking data availability
 	void dataValidityCheck() {
 		
