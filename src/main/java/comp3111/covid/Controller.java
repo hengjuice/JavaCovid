@@ -197,6 +197,10 @@ public class Controller implements Initializable {
     }
 
     @FXML
+    void generateTable(ActionEvent event) {
+    }
+    
+    @FXML
     void generateChart(ActionEvent event) {
     	
     	//String ID = (String) event.getSource();
@@ -220,9 +224,7 @@ public class Controller implements Initializable {
     	
     	
 
-//        @FXML
-//        void generateTable(ActionEvent event) {
-//        }
+
     	
     	
     	// Get Countries Value
