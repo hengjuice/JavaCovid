@@ -83,6 +83,8 @@ public class Controller implements Initializable {
     @FXML
     private TextField textfieldISO;
     
+    /** Initializes the list of countries.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     	String iDataset = textfieldDataset.getText();
@@ -164,6 +166,8 @@ public class Controller implements Initializable {
     @FXML
     private CheckComboBox checkCBC2;
 
+    /** Represents the warning message.
+     */
     @FXML
     public Label warningMessage;
 

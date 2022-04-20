@@ -2,7 +2,8 @@ package comp3111.covid;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
+/** Input validation of dates and countries.
+ */
 public class InputChecker {
 	
 	// Error object
