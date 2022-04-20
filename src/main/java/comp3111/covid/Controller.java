@@ -200,7 +200,7 @@ public class Controller implements Initializable {
     	
     	// Initialize InputChecker Object - will return any errors
     	InputChecker inputChecker = new InputChecker(startDate, endDate);
-    	inputChecker.inputValidityCheck();
+    	inputChecker.chartInputValidityCheck();
     	
     	// If there are errors, graphs will not be generated
     	if (!inputChecker.error_statements.isEmpty()) {
