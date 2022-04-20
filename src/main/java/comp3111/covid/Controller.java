@@ -1,6 +1,7 @@
 package comp3111.covid;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
@@ -55,6 +56,10 @@ public class Controller implements Initializable {
     */
     @FXML
     public DatePicker startDatePicker;
+    
+
+    @FXML
+    private DatePicker datePickerA;
 
     @FXML
     private Tab tabApp1;
@@ -186,6 +191,8 @@ public class Controller implements Initializable {
     	
     }
     
+
+    
 	@FXML
     LocalDate saveStartDate(ActionEvent event) {
     	LocalDate startDate = startDatePicker.getValue();
@@ -211,6 +218,20 @@ public class Controller implements Initializable {
 
     @FXML
     void generateTable(ActionEvent event) {
+    	
+    	LocalDate Date = datePickerA.getValue();
+    	
+    	ObservableList list = checkCBA.getCheckModel().getCheckedItems();
+    	
+    	if (list.isEmpty() == true) {
+    		System.out.println("no countries selected");
+    	}
+ 
+    	//for testing
+    	System.out.println(list.get(0));
+    	
+    	for(Object obj : list)
+    		System.out.println(obj.toString());
     }
     
     @FXML

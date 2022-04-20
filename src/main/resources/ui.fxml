@@ -43,7 +43,7 @@
                            <children>
                               <Label layoutX="79.0" layoutY="44.0" />
                               <Label layoutX="131.0" layoutY="61.0" text="select date" />
-                              <DatePicker layoutX="336.0" layoutY="57.0" />
+                              <DatePicker fx:id="datePickerA" layoutX="336.0" layoutY="57.0" onAction="#saveStartDate" />
                               <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Cases" />
                               <Button fx:id="buttonTableA" layoutX="264.0" layoutY="167.0" mnemonicParsing="false" onAction="#generateTable" text="generate table" />
