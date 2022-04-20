@@ -86,7 +86,6 @@ public class Controller implements Initializable {
     		checkCBB.getItems().add(countries.get(i));
     		checkCBC.getItems().add(countries.get(i));
     		
-    		
     		checkCBA2.getItems().add(countries.get(i));
     		checkCBB2.getItems().add(countries.get(i));
     		checkCBC2.getItems().add(countries.get(i));
