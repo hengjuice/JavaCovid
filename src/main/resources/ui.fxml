@@ -4,7 +4,6 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -46,11 +45,10 @@
                               <Label layoutX="131.0" layoutY="61.0" text="select date" />
                               <DatePicker layoutX="336.0" layoutY="57.0" />
                               <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
-                              <ComboBox fx:id="comboBoxA1" layoutX="336.0" layoutY="112.0" prefWidth="150.0" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Cases" />
                               <Button layoutX="264.0" layoutY="167.0" mnemonicParsing="false" text="generate table" />
                               <TableView fx:id="TableViewA" layoutY="214.0" prefHeight="436.0" prefWidth="719.0" />
-                              <CheckComboBox fx:id="checkCB" layoutX="486.0" layoutY="155.0" />
+                              <CheckComboBox fx:id="checkCBA" layoutX="336.0" layoutY="112.0" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -63,10 +61,10 @@
                               <Label layoutX="131.0" layoutY="61.0" text="select date" />
                               <DatePicker layoutX="336.0" layoutY="57.0" />
                               <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
-                              <ComboBox layoutX="336.0" layoutY="112.0" prefWidth="150.0" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Deaths" />
                               <Button layoutX="264.0" layoutY="167.0" mnemonicParsing="false" text="generate table" />
-                              <TableView fx:id="TableViewB" layoutX="2.0" layoutY="214.0" prefHeight="436.0" prefWidth="719.0" />
+                              <TableView fx:id="TableViewB" layoutY="214.0" prefHeight="436.0" prefWidth="719.0" />
+                              <CheckComboBox fx:id="checkCBB" layoutX="336.0" layoutY="112.0" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -79,10 +77,10 @@
                               <Label layoutX="131.0" layoutY="61.0" text="select date" />
                               <DatePicker layoutX="336.0" layoutY="57.0" />
                               <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
-                              <ComboBox layoutX="336.0" layoutY="112.0" prefWidth="150.0" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Vaccinations" />
                               <Button layoutX="264.0" layoutY="167.0" mnemonicParsing="false" text="generate table" />
                               <TableView fx:id="TableViewC" layoutY="214.0" prefHeight="436.0" prefWidth="719.0" />
+                              <CheckComboBox fx:id="checkCBC" layoutX="336.0" layoutY="112.0" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -103,7 +101,6 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="408.0" prefWidth="811.0">
                            <children>
                               <DatePicker fx:id="endDatePicker" layoutX="348.0" layoutY="114.0" onAction="#saveEndDate" prefHeight="25.0" prefWidth="175.0" />
-                              <ComboBox layoutX="348.0" layoutY="168.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" wrappingWidth="101.47003173828125" />
                               <Text layoutX="195.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Countries of Interest" wrappingWidth="139.47003173828125" />
                               <Button fx:id="buttonChartA" layoutX="268.0" layoutY="228.0" mnemonicParsing="false" onAction="#generateChart" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
@@ -118,6 +115,7 @@
                                     <NumberAxis side="LEFT" />
                                  </yAxis>
                               </LineChart>
+                              <CheckComboBox fx:id="checkCBA2" layoutX="348.0" layoutY="168.0" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -138,7 +136,6 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <DatePicker layoutX="348.0" layoutY="114.0" prefHeight="25.0" prefWidth="175.0" />
-                              <ComboBox layoutX="348.0" layoutY="168.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" wrappingWidth="101.47003173828125" />
                               <Text layoutX="195.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Countries of Interest" wrappingWidth="139.47003173828125" />
                               <Button fx:id="buttonChartB" layoutX="268.0" layoutY="228.0" mnemonicParsing="false" onAction="#generateChart" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
@@ -153,6 +150,7 @@
                                   <NumberAxis side="LEFT" />
                                 </yAxis>
                               </LineChart>
+                              <CheckComboBox fx:id="checkCBB2" layoutX="348.0" layoutY="168.0" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -162,7 +160,6 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="634.0" prefWidth="719.0">
                            <children>
                               <DatePicker layoutX="348.0" layoutY="114.0" prefHeight="25.0" prefWidth="175.0" />
-                              <ComboBox layoutX="348.0" layoutY="168.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" wrappingWidth="101.47003173828125" />
                               <Text layoutX="195.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Countries of Interest" wrappingWidth="139.47003173828125" />
                               <Button fx:id="buttonChartC" layoutX="268.0" layoutY="228.0" mnemonicParsing="false" onAction="#generateChart" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
@@ -177,6 +174,7 @@
                                     <NumberAxis side="LEFT" />
                                  </yAxis>
                               </LineChart>
+                              <CheckComboBox fx:id="checkCBC2" layoutX="348.0" layoutY="168.0" />
                            </children>
                         </AnchorPane>
                     </content>
