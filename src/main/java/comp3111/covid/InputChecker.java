@@ -7,6 +7,7 @@ public class InputChecker {
 	
 	// Error object
 	ArrayList<String> error_statements = new ArrayList<String>();
+	ArrayList<String> countries_selected = new ArrayList<String>();
 	LocalDate startDate;
 	LocalDate endDate;
 	
@@ -17,6 +18,13 @@ public class InputChecker {
 		this.startDate = startDate;
 		this.endDate = endDate;
 	}
+	
+	InputChecker(LocalDate startDate)
+	{
+		this.startDate = startDate;
+	}
+	
+	
 	
 	boolean isDateValid(LocalDate startDate, LocalDate endDate) {
 	    	/*
@@ -43,15 +51,32 @@ public class InputChecker {
 	    		return false;
 	    	}
 	 }
+	
+	void tableInputValidityCheck() {
+		boolean condition_1 = false;
+		boolean condition_4 = false; // if no countries are selected
+		if (startDate == null) 
+		{
+			error_statements.add("Start Date not provided");
+		}
+		if (countries_selected == null) {
+			error_statements.add("No Countries are Selected");
+		}
+		else
+		{
+			condition_4 = true;
+		}
+	}
 
 	// CHECKS - Triggered by Generate Chart
 	
 	// Checking Date inputs
-	void inputValidityCheck() {
+	void chartInputValidityCheck() {
 		
 		boolean condition_1 = false; // startDate exists
 		boolean condition_2 = false; // endDate exists
 		boolean condition_3 = false; // startDate after or equal endDate
+		boolean condition_4 = false; // if no countries are selected
 		
 		//Check if start date is provided
 		if (startDate == null) 
@@ -80,6 +105,14 @@ public class InputChecker {
 				condition_3 = false;
 				error_statements.add("End Date cannot be before Start Date");
 			}
+		
+		if (countries_selected == null) {
+			error_statements.add("No Countries are Selected");
+		}
+		else
+		{
+			condition_4 = true;
+		}
 		
 	}
 	
