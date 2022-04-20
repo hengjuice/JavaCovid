@@ -117,6 +117,15 @@ public class Controller implements Initializable {
     @FXML
     private Button buttonChartC;
     
+    @FXML
+    private Button buttonTableA;
+
+    @FXML
+    private Button buttonTableB;
+
+    @FXML
+    private Button buttonTableC;
+    
     // Tables
     @FXML
     private TableView TableViewA;
@@ -208,6 +217,12 @@ public class Controller implements Initializable {
     		//Generate Error window
     		return;
     	}
+    	
+    	
+
+//        @FXML
+//        void generateTable(ActionEvent event) {
+//        }
     	
     	
     	// Get Countries Value

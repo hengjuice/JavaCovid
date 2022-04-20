@@ -46,7 +46,7 @@
                               <DatePicker layoutX="336.0" layoutY="57.0" />
                               <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Cases" />
-                              <Button layoutX="264.0" layoutY="167.0" mnemonicParsing="false" text="generate table" />
+                              <Button fx:id="buttonTableA" layoutX="264.0" layoutY="167.0" mnemonicParsing="false" onAction="#generateTable" text="generate table" />
                               <TableView fx:id="TableViewA" layoutY="214.0" prefHeight="436.0" prefWidth="719.0" />
                               <CheckComboBox fx:id="checkCBA" layoutX="336.0" layoutY="112.0" />
                            </children>
@@ -62,7 +62,7 @@
                               <DatePicker layoutX="336.0" layoutY="57.0" />
                               <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Deaths" />
-                              <Button layoutX="264.0" layoutY="167.0" mnemonicParsing="false" text="generate table" />
+                              <Button fx:id="buttonTableB" layoutX="264.0" layoutY="167.0" mnemonicParsing="false" onAction="#generateTable" text="generate table" />
                               <TableView fx:id="TableViewB" layoutY="214.0" prefHeight="436.0" prefWidth="719.0" />
 
                               <CheckComboBox fx:id="checkCBB" layoutX="336.0" layoutY="112.0" />
@@ -80,7 +80,7 @@
                               <DatePicker layoutX="336.0" layoutY="57.0" />
                               <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Vaccinations" />
-                              <Button layoutX="264.0" layoutY="167.0" mnemonicParsing="false" text="generate table" />
+                              <Button fx:id="buttonTableC" layoutX="264.0" layoutY="167.0" mnemonicParsing="false" onAction="#generateTable" text="generate table" />
                               <TableView fx:id="TableViewC" layoutY="214.0" prefHeight="436.0" prefWidth="719.0" />
                               <CheckComboBox fx:id="checkCBC" layoutX="336.0" layoutY="112.0" />
                            </children>
@@ -187,4 +187,3 @@
     </AnchorPane>
   </children>
 </VBox>
-
