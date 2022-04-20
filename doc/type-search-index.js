@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"comp3111.covid","l":"Controller"},{"p":"comp3111.covid","l":"InputChecker"}];updateSearchResults();
