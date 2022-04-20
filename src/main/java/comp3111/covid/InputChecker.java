@@ -30,8 +30,8 @@ public class InputChecker {
 	    	/*
 	    	LocalDate.compareTo(LocalDate)
 	    	It returns 0 if both the dates are equal.
-			It returns positive value if “this date” is greater than the otherDate.
-		    It returns negative value if “this date” is less than the otherDate.
+			It returns positive value if this date is greater than the otherDate.
+		    It returns negative value if this date is less than the otherDate.
 	    	*/
 		
 	    	int i = endDate.compareTo(startDate);

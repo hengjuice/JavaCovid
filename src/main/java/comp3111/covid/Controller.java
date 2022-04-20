@@ -34,7 +34,8 @@ import org.controlsfx.control.CheckComboBox;
 import comp3111.covid.DataAnalysis;
 
 
-
+/** Represents the controller.
+ */
 public class Controller implements Initializable {
 
     @FXML
@@ -48,8 +49,11 @@ public class Controller implements Initializable {
 
     @FXML
     private ComboBox<String> comboBoxA1;
+    /** Represents the end date date picker.
+     */
     public DatePicker endDatePicker;
-
+    /** Represents the start date date picker.
+    */
     @FXML
     public DatePicker startDatePicker;
     
