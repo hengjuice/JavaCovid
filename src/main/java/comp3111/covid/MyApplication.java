@@ -1,10 +1,13 @@
 package comp3111.covid;
 
+
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 
 
 /**
@@ -46,8 +49,10 @@ public class MyApplication extends Application {
     	loader.setLocation(getClass().getResource(UI_FILE));
    		VBox root = (VBox) loader.load();
    		Scene scene =  new Scene(root);
+   		scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
    		stage.setScene(scene);
    		stage.setTitle("Super Team T-23: Data Visualizer on COVID-19");
+   		stage.getIcons().add(new Image("/virus.png"));
    		stage.show();
 	}
 
