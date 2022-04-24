@@ -15,6 +15,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.util.Pair;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import comp3111.covid.Chart;
 import comp3111.covid.InputChecker;
 import comp3111.covid.DataAnalysis;
+import comp3111.covid.Country;
 
 import javafx.fxml.Initializable;
 import java.net.URL;
@@ -48,11 +50,20 @@ public class Controller implements Initializable {
 
     @FXML
     private ComboBox<String> comboBoxA1;
-    public DatePicker endDatePicker;
-
-    @FXML
-    public DatePicker startDatePicker;
     
+    // FOR CHARTS
+    @FXML
+    public DatePicker startDatePickerA;
+    @FXML
+    public DatePicker startDatePickerB;
+    @FXML
+    public DatePicker startDatePickerC;
+    @FXML
+    public DatePicker endDatePickerA;
+    @FXML
+    public DatePicker endDatePickerB;
+    @FXML
+    public DatePicker endDatePickerC;
 
     @FXML
     private DatePicker datePickerA;
@@ -90,33 +101,19 @@ public class Controller implements Initializable {
     	ArrayList<String> countries = DataAnalysis.allCountriesArray(iDataset);
     	
     	for (int i = 0; i < countries.size(); i++) {
+    		String country = countries.get(i);
+    		checkCBA.getItems().add(country);
+    		checkCBB.getItems().add(country);
+    		checkCBC.getItems().add(country);
     		
-    		checkCBA.getItems().add(countries.get(i));
-    		checkCBB.getItems().add(countries.get(i));
-    		checkCBC.getItems().add(countries.get(i));
-    		
-    		checkCBA2.getItems().add(countries.get(i));
-    		checkCBB2.getItems().add(countries.get(i));
-    		checkCBC2.getItems().add(countries.get(i));
+    		checkCBA2.getItems().add(country);
+    		checkCBB2.getItems().add(country);
+    		checkCBC2.getItems().add(country);
     		
     	}
     	
 
     }
-    
-
-    
-//    public void initializeComboBox (URL url, ResourceBundle resourceBundle) {
-//    	String iDataset = textfieldDataset.getText();
-//    	ArrayList<String> countries = DataAnalysis.allCountriesArray(iDataset);
-//    	
-//    	
-//    	for (int i = 0; i < countries.size(); i++) {
-//    		
-//    		comboBoxA1.getItems().add(countries.get(i));
-//    	}
-//    }
-  
 
     @FXML
     private Button buttonChartA;
@@ -169,46 +166,6 @@ public class Controller implements Initializable {
     public Label warningMessage;
 
     @FXML
-    void doConfirmedCases(ActionEvent event) {
-
-    }
-
-    @FXML
-    void doConfirmedDeaths(ActionEvent event) {
-
-    }
-
-    @FXML
-    void doRateOfVaccination(ActionEvent event) {
-    	
-    }
-    
-
-    
-	@FXML
-    LocalDate saveStartDate(ActionEvent event) {
-    	LocalDate startDate = startDatePicker.getValue();
-    	
-    	// TEST
-    	String formattedStartDate = startDate.format(DateTimeFormatter.ofPattern("MM-dd-yyyy"));
-    	System.out.println(formattedStartDate);
-    	
-    	
-    	return startDate;
-    }
-    
-    @FXML
-    LocalDate saveEndDate(ActionEvent event) {
-    	LocalDate endDate = endDatePicker.getValue();
-    	
-    	// TEST
-    	String formattedEndDate = endDate.format(DateTimeFormatter.ofPattern("MM-dd-yyyy"));
-    	System.out.println(formattedEndDate);
-    	
-    	return endDate;
-    }
-
-    @FXML
     void generateTable(ActionEvent event) {
     	
     	LocalDate Date = datePickerA.getValue();
@@ -227,14 +184,12 @@ public class Controller implements Initializable {
     }
     
     @FXML
-    void generateChart(ActionEvent event) {
+    void generateChartA(ActionEvent event) {
     	
+    	System.out.println("Button is pressed "+ ((Button)event.getSource()).getText());
     	LineChartA.getData().clear();
-    	//String ID = (String) event.getSource();
-    	
-    	LocalDate startDate = startDatePicker.getValue();
-    	
-    	LocalDate endDate = endDatePicker.getValue();
+    	LocalDate startDate = startDatePickerA.getValue();
+    	LocalDate endDate = endDatePickerA.getValue();
 
     	// CHECK INPUT VALIDITY
     	
@@ -256,34 +211,132 @@ public class Controller implements Initializable {
     		//Generate Error window
     		return;
     	}
-
-    	
-    	
+    	System.out.println("Error check completed");
     	
     	// Get Countries Value
     	ArrayList<String> countries = new ArrayList<String>();
     	countries.add("Afghanistan");
     	
-    	// Initialize Chart Object
-    	//Chart chart = new Chart(ID, startDate, endDate, countries);
+    	String iDataset = textfieldDataset.getText();
+    	Country country = new Country("Afghanistan", startDate, endDate, "A2" , iDataset);
+    	
+    	System.out.println(country.name);
+    	
     	Series<String, Number> series = new XYChart.Series<String, Number>();
-    	series.getData().add(new XYChart.Data<String, Number>("Jan", 100));
-    	series.getData().add(new XYChart.Data<String, Number>("Feb", 60));
-    	series.getData().add(new XYChart.Data<String, Number>("Mar", 40));
-    	series.getData().add(new XYChart.Data<String, Number>("Apr", 150));
-    	series.getData().add(new XYChart.Data<String, Number>("May", 90));
+    	
+    	for (Pair<LocalDate, Float> dp : country.chartdatapoints)
+    	{
+    		System.out.println("Adding datapoint into chart" + dp.getKey().toString());
+    		series.getData().add(new XYChart.Data<String, Number>(dp.getKey().toString(), dp.getValue()));
+    	}
     	series.setName("No of cases");
-    	
+//    	
     	LineChartA.getData().add(series);
+
+    }
+    
+    @FXML
+    void generateChartB(ActionEvent event) {
     	
+    	System.out.println("Button is pressed "+ ((Button)event.getSource()).getText());
+    	LineChartB.getData().clear();
+    	LocalDate startDate = startDatePickerB.getValue();
+    	LocalDate endDate = endDatePickerB.getValue();
+
+    	// CHECK INPUT VALIDITY
     	
-    	/*
+    	// Initialize InputChecker Object - will return any errors
+    	InputChecker inputChecker = new InputChecker(startDate, endDate);
+    	inputChecker.chartInputValidityCheck();
     	
-    	for every country selected from combobox:
-    		add data from start date till end date into series
-    			plot the graph of that country's series
+    	// If there are errors, graphs will not be generated
+    	if (!inputChecker.error_statements.isEmpty()) {
+    		//inputChecker.printErrorStatements();
+    		StringBuilder errs = new StringBuilder();
+    		for(String err: inputChecker.error_statements)
+        	{
+        		errs.append(err);
+        		errs.append('\n');
+        	}
+    		warningMessage.setWrapText(true);
+    		warningMessage.setText(errs.toString());
+    		//Generate Error window
+    		return;
+    	}
+    	System.out.println("Error check completed");
     	
-    	 */
+    	// Get Countries Value
+    	ArrayList<String> countries = new ArrayList<String>();
+    	countries.add("Afghanistan");
+    	
+    	String iDataset = textfieldDataset.getText();
+    	Country country = new Country("Afghanistan", startDate, endDate, "B2" , iDataset);
+    	
+    	System.out.println(country.name);
+    	
+    	Series<String, Number> series = new XYChart.Series<String, Number>();
+    	
+    	for (Pair<LocalDate, Float> dp : country.chartdatapoints)
+    	{
+    		System.out.println("Adding datapoint into chart" + dp.getKey().toString());
+    		series.getData().add(new XYChart.Data<String, Number>(dp.getKey().toString(), dp.getValue()));
+    	}
+    	series.setName(country.name);
+//    	
+    	LineChartB.getData().add(series);
+
+    }
+    
+    @FXML
+    void generateChartC(ActionEvent event) {
+    	
+    	System.out.println("Button is pressed "+ ((Button)event.getSource()).getText());
+    	LineChartC.getData().clear();
+    	LocalDate startDate = startDatePickerC.getValue();
+    	LocalDate endDate = endDatePickerC.getValue();
+
+    	// CHECK INPUT VALIDITY
+    	
+    	// Initialize InputChecker Object - will return any errors
+    	InputChecker inputChecker = new InputChecker(startDate, endDate);
+    	inputChecker.chartInputValidityCheck();
+    	
+    	// If there are errors, graphs will not be generated
+    	if (!inputChecker.error_statements.isEmpty()) {
+    		//inputChecker.printErrorStatements();
+    		StringBuilder errs = new StringBuilder();
+    		for(String err: inputChecker.error_statements)
+        	{
+        		errs.append(err);
+        		errs.append('\n');
+        	}
+    		warningMessage.setWrapText(true);
+    		warningMessage.setText(errs.toString());
+    		//Generate Error window
+    		return;
+    	}
+    	System.out.println("Error check completed");
+    	
+    	// Get Countries Value
+    	ArrayList<String> countries = new ArrayList<String>();
+    	countries.add("Afghanistan");
+    	
+    	String iDataset = textfieldDataset.getText();
+    	Country country = new Country("Afghanistan", startDate, endDate, "C2" , iDataset);
+    	
+    	System.out.println(country.name);
+    	
+    	Series<String, Number> series = new XYChart.Series<String, Number>();
+    	
+    	for (Pair<LocalDate, Float> dp : country.chartdatapoints)
+    	{
+    		System.out.println("Adding datapoint into chart" + dp.getKey().toString());
+    		series.getData().add(new XYChart.Data<String, Number>(dp.getKey().toString(), dp.getValue()));
+    	}
+    	series.setName(country.name);
+//    	
+    	LineChartC.getData().add(series);
+
     }
 
 }
