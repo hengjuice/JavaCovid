@@ -43,7 +43,7 @@
                            <children>
                               <Label layoutX="79.0" layoutY="44.0" />
                               <Label layoutX="131.0" layoutY="61.0" text="select date" />
-                              <DatePicker fx:id="datePickerA" layoutX="336.0" layoutY="57.0" onAction="#saveStartDate" />
+                              <DatePicker layoutX="336.0" layoutY="57.0" />
                               <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Cases" />
                               <Button fx:id="buttonTableA" layoutX="264.0" layoutY="167.0" mnemonicParsing="false" onAction="#generateTable" text="generate table" />
@@ -102,11 +102,11 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="408.0" prefWidth="811.0">
                            <children>
-                              <DatePicker fx:id="endDatePicker" layoutX="348.0" layoutY="114.0" onAction="#saveEndDate" prefHeight="25.0" prefWidth="175.0" />
+                              <DatePicker fx:id="endDatePickerA" layoutX="348.0" layoutY="114.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" wrappingWidth="101.47003173828125" />
                               <Text layoutX="195.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Countries of Interest" wrappingWidth="139.47003173828125" />
-                              <Button fx:id="buttonChartA" layoutX="268.0" layoutY="228.0" mnemonicParsing="false" onAction="#generateChart" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
-                              <DatePicker fx:id="startDatePicker" layoutX="348.0" layoutY="62.0" onAction="#saveStartDate" prefHeight="25.0" prefWidth="175.0" />
+                              <Button fx:id="buttonChartA" layoutX="268.0" layoutY="228.0" mnemonicParsing="false" onAction="#generateChartA" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
+                              <DatePicker fx:id="startDatePickerChartA" layoutX="348.0" layoutY="62.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" wrappingWidth="101.47003173828125" />
                               <Label layoutX="224.0" layoutY="22.0" prefHeight="17.0" prefWidth="423.0" text="Cumulative Confirmed COVID-19 cases (per 1M) by country" />
                               <LineChart fx:id="LineChartA" layoutY="274.0" prefHeight="375.0" prefWidth="719.0">
@@ -138,11 +138,11 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <DatePicker layoutX="348.0" layoutY="114.0" prefHeight="25.0" prefWidth="175.0" />
+                              <DatePicker fx:id="endDatePickerB" layoutX="348.0" layoutY="114.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" wrappingWidth="101.47003173828125" />
                               <Text layoutX="195.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Countries of Interest" wrappingWidth="139.47003173828125" />
-                              <Button fx:id="buttonChartB" layoutX="268.0" layoutY="228.0" mnemonicParsing="false" onAction="#generateChart" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
-                              <DatePicker layoutX="348.0" layoutY="62.0" prefHeight="25.0" prefWidth="175.0" />
+                              <Button fx:id="buttonChartB" layoutX="268.0" layoutY="228.0" mnemonicParsing="false" onAction="#generateChartB" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
+                              <DatePicker fx:id="startDatePickerChartB" layoutX="348.0" layoutY="62.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" wrappingWidth="101.47003173828125" />
                               <Label layoutX="223.0" layoutY="22.0" prefHeight="17.0" prefWidth="325.0" text="Cumulative Confirmed COVID-19 deaths (per 1M) by country" />
                               <LineChart fx:id="LineChartB" layoutY="274.0" prefHeight="375.0" prefWidth="719.0">
@@ -162,11 +162,11 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="634.0" prefWidth="719.0">
                            <children>
-                              <DatePicker layoutX="348.0" layoutY="114.0" prefHeight="25.0" prefWidth="175.0" />
+                              <DatePicker fx:id="endDatePickerC" layoutX="348.0" layoutY="114.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" wrappingWidth="101.47003173828125" />
                               <Text layoutX="195.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Countries of Interest" wrappingWidth="139.47003173828125" />
-                              <Button fx:id="buttonChartC" layoutX="268.0" layoutY="228.0" mnemonicParsing="false" onAction="#generateChart" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
-                              <DatePicker layoutX="348.0" layoutY="62.0" prefHeight="25.0" prefWidth="175.0" />
+                              <Button fx:id="buttonChartC" layoutX="268.0" layoutY="228.0" mnemonicParsing="false" onAction="#generateChartC" prefHeight="33.0" prefWidth="183.0" text="Generate Chart" />
+                              <DatePicker fx:id="startDatePickerChartC" layoutX="348.0" layoutY="62.0" prefHeight="25.0" prefWidth="175.0" />
                               <Text layoutX="195.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" wrappingWidth="101.47003173828125" />
                               <Label layoutX="223.0" layoutY="22.0" prefHeight="17.0" prefWidth="273.0" text="Cumulative Rate of Vaccination against COVID-19" />
                               <LineChart fx:id="LineChartC" layoutY="274.0" prefHeight="375.0" prefWidth="719.0">

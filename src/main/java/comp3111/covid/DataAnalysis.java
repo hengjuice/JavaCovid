@@ -1,6 +1,8 @@
 package comp3111.covid;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import org.apache.commons.csv.*;
 import edu.duke.*;
