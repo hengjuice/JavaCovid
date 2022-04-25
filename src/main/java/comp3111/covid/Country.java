@@ -23,7 +23,21 @@ public class Country {
 	ArrayList<Pair<LocalDate, Float>> chartdatapoints = new ArrayList<Pair<LocalDate, Float>>();
 	LocalDate startDate;
 	LocalDate endDate;
+	Pair<Integer, Integer> tabledatapoint = new Pair<Integer, Integer>(null, null);
 	
+	Country(String name, LocalDate startDate, String task, String dataset)
+	{
+		this.name = name;
+		this.startDate = startDate;
+		this.task = task;
+		this.dataset = dataset;
+		
+		// Call associated function based on task
+		if (task == "A1") {getConfirmedCases(dataset); this.called_function = "getConfirmedCases";}
+		if (task == "B1") {getConfirmedDeaths(dataset); this.called_function = "getConfirmedDeaths";}
+		if (task == "C1") {getVaccinationRate(dataset); this.called_function = "getVaccinationRate";}
+		
+	}
 	
 	Country(String name, LocalDate startDate, LocalDate endDate, String task, String dataset)
 	{
@@ -39,23 +53,6 @@ public class Country {
 		if (task == "C2") {getCumulativeVaccination(dataset); this.called_function = "Cumulative Rate of Vaccination against COVID-19";}
 	}
 	// Three Types of Data
-	
-	
-	
-	// Helper function to slice ArrayList from startdate to enddate (UNUSED)
-	public void sliceArrayList()
-	{
-		for(Pair<LocalDate,Float> datapoint: datapoints)
-		{
-			LocalDate date = datapoint.getKey();
-			Float v = datapoint.getValue();
-			if(date.isBefore(endDate) && date.isAfter(startDate))
-			{
-				System.out.println("Removed:" + datapoint);
-				chartdatapoints.add(datapoint);
-			}
-		}
-	}
 	
 	
 	public LocalDate dateFormatter(String stringdate)
@@ -77,6 +74,74 @@ public class Country {
 		
 		
 	}
+	
+	// A1: Number of Confirmed COVID-19 Cases as of [Date of Interest]
+	public void getConfirmedCases(String dataset)
+	{
+		int total_cases;
+		int total_cases_pm;
+		System.out.println("getConfirmedCases from " + dataset);
+		for(CSVRecord rec : getFileParser(dataset)) {
+			if (rec.get("location").equals(this.name))
+			{
+				System.out.println("String Date " +rec.get("date"));
+				String stringdate = rec.get("date");
+				LocalDate date = dateFormatter(stringdate);
+				if(date.isEqual(startDate))
+				{
+					//3 columns with proper headings of "Country", "Total Cases", and "Total Cases (per 1M)"
+					total_cases = Integer.parseInt(rec.get("total_cases"));
+					total_cases_pm = Integer.parseInt(rec.get("total_cases_per_million"));
+					tabledatapoint = new Pair<Integer, Integer>(total_cases, total_cases_pm);
+				}
+			}
+		}
+	}
+	// B1: Number of Confirmed COVID-19 Deaths as of [Date of Interest]
+	public void getConfirmedDeaths(String dataset)
+	{
+		int total_deaths, total_deaths_pm;
+		System.out.println("getConfirmedDeaths from " + dataset);
+		for(CSVRecord rec : getFileParser(dataset)) {
+			if (rec.get("location").equals(this.name))
+			{
+				System.out.println("String Date " +rec.get("date"));
+				String stringdate = rec.get("date");
+				LocalDate date = dateFormatter(stringdate);
+				if(date.isEqual(startDate))
+				{
+					//3 columns with proper headings of "Country", "Total Deaths", and "Total Deaths (per 1M)"
+					total_deaths = Integer.parseInt(rec.get("total_deaths"));
+					total_deaths_pm = Integer.parseInt(rec.get("total_deaths_per_million"));
+					tabledatapoint = new Pair<Integer, Integer>(total_deaths, total_deaths_pm);
+				}
+			}
+		}
+	}
+	// C1: Rate of Vaccination against COVID-19 as of [Date of Interest]
+	public void getVaccinationRate(String dataset)
+	{
+		int total_vaccinated;
+		int rate_of_vaccination;
+		int population;
+		System.out.println("getVaccinationRate from " + dataset);
+		for(CSVRecord rec : getFileParser(dataset)) {
+			if (rec.get("location").equals(this.name))
+			{
+				System.out.println("String Date " +rec.get("date"));
+				String stringdate = rec.get("date");
+				LocalDate date = dateFormatter(stringdate);
+				if(date.isEqual(startDate))
+				{
+					//3 columns with proper headings of "Country", "Fully Vaccinated", and "Rate of Vaccination"
+					total_vaccinated = Integer.parseInt(rec.get("people_fully_vaccinated"));
+					population = Integer.parseInt(rec.get("population"));
+					if(population != 0) rate_of_vaccination = total_vaccinated/population * 100;
+				}
+			}
+		}			
+	}
+	
 	
 	// A2: Cumulative Confirmed COVID-19 Cases (per 1M)
 	public void getCumulativeConfirmedCases(String dataset)
