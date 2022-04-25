@@ -194,7 +194,7 @@ public class Controller implements Initializable {
     	ObservableList list = checkCBA.getCheckModel().getCheckedItems();
     	
     	if (list.isEmpty() == true) {
-    		System.out.println("no countries selected");
+    		System.out.println("No countries are selected");
     	}
  
     	//for testing
@@ -243,10 +243,10 @@ public class Controller implements Initializable {
     	ObservableList list = checkCBA2.getCheckModel().getCheckedItems();
     	
     	if (list.isEmpty() == true) {
-    		System.out.println("no countries selected");
+    		System.out.println("No countries are selected");
     		
     		warningMessageA2.setWrapText(true);
-    		warningMessageA2.setText("no countries selected");
+    		warningMessageA2.setText("No countries are selected");
     		return;
     	}
     	
@@ -326,10 +326,10 @@ public class Controller implements Initializable {
     	ObservableList list = checkCBB2.getCheckModel().getCheckedItems();
     	
     	if (list.isEmpty() == true) {
-    		System.out.println("no countries selected");
+    		System.out.println("No countries are selected");
     		
     		warningMessageB2.setWrapText(true);
-    		warningMessageB2.setText("no countries selected");
+    		warningMessageB2.setText("No countries are selected");
     		return;
     	}
     	
@@ -398,10 +398,10 @@ public class Controller implements Initializable {
     	ObservableList list = checkCBC2.getCheckModel().getCheckedItems();
     	
     	if (list.isEmpty() == true) {
-    		System.out.println("no countries selected");
+    		System.out.println("No countries are selected");
     		
     		warningMessageB2.setWrapText(true);
-    		warningMessageB2.setText("no countries selected");
+    		warningMessageB2.setText("No countries are selected");
     		return;
     	}
     	
