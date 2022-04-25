@@ -207,7 +207,7 @@ public class Controller implements Initializable {
     	ObservableList list = checkCBA.getCheckModel().getCheckedItems();
     	
     	if (list.isEmpty() == true) {
-    		System.out.println("no countries selected");
+    		System.out.println("No countries are selected");
     	}
  
     	//for testing
@@ -255,10 +255,10 @@ public class Controller implements Initializable {
     	ObservableList list = checkCBA2.getCheckModel().getCheckedItems();
     	
     	if (list.isEmpty() == true) {
-    		System.out.println("no countries selected");
+    		System.out.println("No countries are selected");
     		
     		warningMessageA2.setWrapText(true);
-    		warningMessageA2.setText("no countries selected");
+    		warningMessageA2.setText("No countries are selected");
     		return;
     	}
     	
@@ -293,6 +293,8 @@ public class Controller implements Initializable {
     	series.setName(country.name);
 //    	
     	LineChartA.getData().add(series);
+    	LineChartA.getXAxis().setLabel("Date");
+    	LineChartA.getYAxis().setLabel("Cumulative Cases");
     	}
     }
     
@@ -338,10 +340,10 @@ public class Controller implements Initializable {
     	ObservableList list = checkCBB2.getCheckModel().getCheckedItems();
     	
     	if (list.isEmpty() == true) {
-    		System.out.println("no countries selected");
+    		System.out.println("No countries are selected");
     		
     		warningMessageB2.setWrapText(true);
-    		warningMessageB2.setText("no countries selected");
+    		warningMessageB2.setText("No countries are selected");
     		return;
     	}
     	
@@ -367,6 +369,8 @@ public class Controller implements Initializable {
     	series.setName(country.name);
 //    	
     	LineChartB.getData().add(series);
+    	LineChartB.getXAxis().setLabel("Date");
+    	LineChartB.getYAxis().setLabel("Cumulative Deaths");
     	}
 
     }
@@ -410,10 +414,10 @@ public class Controller implements Initializable {
     	ObservableList list = checkCBC2.getCheckModel().getCheckedItems();
     	
     	if (list.isEmpty() == true) {
-    		System.out.println("no countries selected");
+    		System.out.println("No countries are selected");
     		
     		warningMessageB2.setWrapText(true);
-    		warningMessageB2.setText("no countries selected");
+    		warningMessageB2.setText("No countries are selected");
     		return;
     	}
     	
@@ -438,8 +442,9 @@ public class Controller implements Initializable {
     		series.getData().add(new XYChart.Data<String, Number>(dp.getKey().toString(), dp.getValue()));
     	}
     	series.setName(country.name);
-    	LineChartC.getData().add(series);
-
+    	LineChartC.getData().add(series);;
+    	LineChartC.getXAxis().setLabel("Date");
+    	LineChartC.getYAxis().setLabel("% Vaccinated");
     	}
     }
 }
