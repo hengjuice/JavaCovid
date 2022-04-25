@@ -236,7 +236,6 @@ public class Controller implements Initializable {
     	
     	// If no countries are selected, graphs will not be generated
     	
-    	/* ADD CODE HERE */
     	
     	//
     	
@@ -245,6 +244,8 @@ public class Controller implements Initializable {
     	// Get Countries Value
     	ArrayList<String> countries = new ArrayList<String>();
     	countries.add("Afghanistan");
+    	
+    	
     	
     	String iDataset = textfieldDataset.getText();
     	Country country = new Country("Afghanistan", startDate, endDate, "A2" , iDataset);
@@ -258,7 +259,7 @@ public class Controller implements Initializable {
     		System.out.println("Adding datapoint into chart" + dp.getKey().toString());
     		series.getData().add(new XYChart.Data<String, Number>(dp.getKey().toString(), dp.getValue()));
     	}
-    	series.setName("No of cases");
+    	series.setName(country.name);
 //    	
     	LineChartA.getData().add(series);
 
@@ -328,6 +329,7 @@ public class Controller implements Initializable {
     	
     	System.out.println("Button is pressed "+ ((Button)event.getSource()).getText());
     	LineChartC.getData().clear();
+    	
     	LocalDate startDate = startDatePickerChartC.getValue();
     	LocalDate endDate = endDatePickerC.getValue();
 
@@ -351,6 +353,7 @@ public class Controller implements Initializable {
     		//Generate Error window
     		return;
     	}
+    	
     	System.out.println("Error check completed");
     	
     	// Get Countries Value
