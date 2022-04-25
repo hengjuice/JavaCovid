@@ -55,11 +55,11 @@ public class Controller implements Initializable {
     
     // FOR CHARTS
     @FXML
-    public DatePicker startDatePickerA;
+    public DatePicker startDatePickerChartA;
     @FXML
-    public DatePicker startDatePickerB;
+    public DatePicker startDatePickerChartB;
     @FXML
-    public DatePicker startDatePickerC;
+    public DatePicker startDatePickerChartC;
     @FXML
     public DatePicker endDatePickerA;
     @FXML
@@ -213,7 +213,7 @@ public class Controller implements Initializable {
     	LineChartA.getData().clear();
     	
     	// GETTING START DATES AND END DATES FROM USER INPUT
-    	LocalDate startDate = startDatePickerA.getValue();
+    	LocalDate startDate = startDatePickerChartA.getValue();
     	LocalDate endDate = endDatePickerA.getValue();
 
     	// CHECK INPUT VALIDITY using InputChecker Class
@@ -269,7 +269,7 @@ public class Controller implements Initializable {
     	
     	System.out.println("Button is pressed "+ ((Button)event.getSource()).getText());
     	LineChartB.getData().clear();
-    	LocalDate startDate = startDatePickerB.getValue();
+    	LocalDate startDate = startDatePickerChartB.getValue();
     	LocalDate endDate = endDatePickerB.getValue();
 
     	// CHECK INPUT VALIDITY
@@ -328,7 +328,7 @@ public class Controller implements Initializable {
     	
     	System.out.println("Button is pressed "+ ((Button)event.getSource()).getText());
     	LineChartC.getData().clear();
-    	LocalDate startDate = startDatePickerC.getValue();
+    	LocalDate startDate = startDatePickerChartC.getValue();
     	LocalDate endDate = endDatePickerC.getValue();
 
     	// CHECK INPUT VALIDITY
