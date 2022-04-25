@@ -8,6 +8,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -47,7 +48,12 @@
                               <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Cases" />
                               <Button fx:id="buttonTableA" layoutX="264.0" layoutY="167.0" mnemonicParsing="false" onAction="#generateTable" text="generate table" />
-                              <TableView fx:id="TableViewA" layoutY="214.0" prefHeight="436.0" prefWidth="719.0" />
+                              <TableView fx:id="TableViewA" layoutY="214.0" prefHeight="436.0" prefWidth="719.0">
+                                 <columns>
+                                  <TableColumn fx:id="countryTableA" prefWidth="124.66670227050781" text="Country" />
+                                    <TableColumn fx:id="casesPerMillionTableA" prefWidth="115.33331298828125" text="Cases per million" />
+                                  <TableColumn fx:id="casesTableA" prefWidth="100.66676330566406" text="Cases" />
+                                 </columns></TableView>
                               <CheckComboBox fx:id="checkCBA" layoutX="336.0" layoutY="112.0" />
                            </children>
                         </AnchorPane>

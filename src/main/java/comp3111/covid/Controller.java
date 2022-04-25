@@ -17,6 +17,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.util.Pair;
 
+import javafx.scene.control.TableColumn;
+
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -140,6 +143,16 @@ public class Controller implements Initializable {
     private TableView TableViewB;
     @FXML
     private TableView TableViewC;
+    
+    @FXML
+    private TableColumn<?, ?> casesPerMillionTableA;
+
+    @FXML
+    private TableColumn<?, ?> casesTableA;
+    
+    @FXML
+    private TableColumn<?, ?> countryTableA;
+    
     
     // Charts
     @FXML
