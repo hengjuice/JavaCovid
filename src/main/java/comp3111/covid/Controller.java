@@ -165,7 +165,26 @@ public class Controller implements Initializable {
     private CheckComboBox checkCBC2;
 
     @FXML
-    public Label warningMessage;
+    public Label warningMessageA2;
+    @FXML
+    public Label warningMessageB2;
+    @FXML
+    public Label warningMessageC2;
+    
+    @FXML
+    void doConfirmedCases(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doConfirmedDeaths(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doRateOfVaccination(ActionEvent event) {
+
+    }
 
     @FXML
     void generateTable(ActionEvent event) {
@@ -189,30 +208,38 @@ public class Controller implements Initializable {
     void generateChartA(ActionEvent event) {
     	
     	System.out.println("Button is pressed "+ ((Button)event.getSource()).getText());
+    	
+    	// ENSURING THAT CHART IS EMPTIED FIRST
     	LineChartA.getData().clear();
+    	
+    	// GETTING START DATES AND END DATES FROM USER INPUT
     	LocalDate startDate = startDatePickerA.getValue();
     	LocalDate endDate = endDatePickerA.getValue();
 
-    	// CHECK INPUT VALIDITY
-    	
-    	// Initialize InputChecker Object - will return any errors
+    	// CHECK INPUT VALIDITY using InputChecker Class
     	InputChecker inputChecker = new InputChecker(startDate, endDate);
     	inputChecker.chartInputValidityCheck();
     	
     	// If there are errors, graphs will not be generated
     	if (!inputChecker.error_statements.isEmpty()) {
-    		//inputChecker.printErrorStatements();
     		StringBuilder errs = new StringBuilder();
     		for(String err: inputChecker.error_statements)
         	{
         		errs.append(err);
         		errs.append('\n');
         	}
-    		warningMessage.setWrapText(true);
-    		warningMessage.setText(errs.toString());
+    		warningMessageA2.setWrapText(true);
+    		warningMessageA2.setText(errs.toString());
     		//Generate Error window
     		return;
     	}
+    	
+    	// If no countries are selected, graphs will not be generated
+    	
+    	/* ADD CODE HERE */
+    	
+    	//
+    	
     	System.out.println("Error check completed");
     	
     	// Get Countries Value
@@ -260,11 +287,18 @@ public class Controller implements Initializable {
         		errs.append(err);
         		errs.append('\n');
         	}
-    		warningMessage.setWrapText(true);
-    		warningMessage.setText(errs.toString());
+    		warningMessageB2.setWrapText(true);
+    		warningMessageB2.setText(errs.toString());
     		//Generate Error window
     		return;
     	}
+    	
+    	// If no countries are selected, graphs will not be generated
+    	
+    	/* ADD CODE HERE */
+    	
+    	//
+    	
     	System.out.println("Error check completed");
     	
     	// Get Countries Value
@@ -312,8 +346,8 @@ public class Controller implements Initializable {
         		errs.append(err);
         		errs.append('\n');
         	}
-    		warningMessage.setWrapText(true);
-    		warningMessage.setText(errs.toString());
+    		warningMessageC2.setWrapText(true);
+    		warningMessageC2.setText(errs.toString());
     		//Generate Error window
     		return;
     	}
@@ -336,7 +370,6 @@ public class Controller implements Initializable {
     		series.getData().add(new XYChart.Data<String, Number>(dp.getKey().toString(), dp.getValue()));
     	}
     	series.setName(country.name);
-//    	
     	LineChartC.getData().add(series);
 
     }

@@ -118,7 +118,7 @@
                                  </yAxis>
                               </LineChart>
                               <CheckComboBox fx:id="checkCBA2" layoutX="348.0" layoutY="168.0" />
-                              <Label fx:id="warningMessage" layoutX="268.0" layoutY="202.0" prefHeight="17.0" prefWidth="183.0" text="" />
+                              <Label fx:id="warningMessageA2" layoutX="268.0" layoutY="202.0" prefHeight="17.0" prefWidth="183.0" text="" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -154,6 +154,7 @@
                                 </yAxis>
                               </LineChart>
                               <CheckComboBox fx:id="checkCBB2" layoutX="348.0" layoutY="168.0" />
+                              <Label fx:id="warningMessageB2" layoutX="268.0" layoutY="209.0" prefHeight="17.0" prefWidth="183.0" text="" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -178,6 +179,7 @@
                                  </yAxis>
                               </LineChart>
                               <CheckComboBox fx:id="checkCBC2" layoutX="348.0" layoutY="168.0" />
+                              <Label fx:id="warningMessageC2" layoutX="268.0" layoutY="208.0" prefHeight="17.0" prefWidth="183.0" text="" />
                            </children>
                         </AnchorPane>
                     </content>
