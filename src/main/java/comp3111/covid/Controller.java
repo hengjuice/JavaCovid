@@ -279,6 +279,8 @@ public class Controller implements Initializable {
     	series.setName(country.name);
 //    	
     	LineChartA.getData().add(series);
+    	LineChartA.getXAxis().setLabel("Date");
+    	LineChartA.getYAxis().setLabel("Cumulative Cases");
     	}
     }
     
@@ -353,6 +355,8 @@ public class Controller implements Initializable {
     	series.setName(country.name);
 //    	
     	LineChartB.getData().add(series);
+    	LineChartB.getXAxis().setLabel("Date");
+    	LineChartB.getYAxis().setLabel("Cumulative Deaths");
     	}
 
     }
@@ -421,8 +425,9 @@ public class Controller implements Initializable {
     		series.getData().add(new XYChart.Data<String, Number>(dp.getKey().toString(), dp.getValue()));
     	}
     	series.setName(country.name);
-    	LineChartC.getData().add(series);
-
+    	LineChartC.getData().add(series);;
+    	LineChartC.getXAxis().setLabel("Date");
+    	LineChartC.getYAxis().setLabel("% Vaccinated");
     	}
     }
 }
