@@ -281,6 +281,7 @@ public class Controller implements Initializable {
     	LineChartA.getData().add(series);
     	LineChartA.getXAxis().setLabel("Date");
     	LineChartA.getYAxis().setLabel("Cumulative Cases");
+    	LineChartA.getXAxis().setAnimated(false);
     	}
     }
     
@@ -357,6 +358,7 @@ public class Controller implements Initializable {
     	LineChartB.getData().add(series);
     	LineChartB.getXAxis().setLabel("Date");
     	LineChartB.getYAxis().setLabel("Cumulative Deaths");
+    	LineChartB.getXAxis().setAnimated(false);
     	}
 
     }
@@ -428,6 +430,7 @@ public class Controller implements Initializable {
     	LineChartC.getData().add(series);;
     	LineChartC.getXAxis().setLabel("Date");
     	LineChartC.getYAxis().setLabel("% Vaccinated");
+    	LineChartC.getXAxis().setAnimated(false);
     	}
     }
 }
