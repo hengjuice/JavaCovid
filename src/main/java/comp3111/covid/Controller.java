@@ -200,6 +200,7 @@ public class Controller implements Initializable {
     	//for testing
     	System.out.println(list.get(0));
     	
+    	
     	for(Object obj : list)
     		System.out.println(obj.toString());
     }
@@ -211,6 +212,7 @@ public class Controller implements Initializable {
     	
     	// ENSURING THAT CHART IS EMPTIED FIRST
     	LineChartA.getData().clear();
+    	warningMessageA2.setText("");
     	
     	// GETTING START DATES AND END DATES FROM USER INPUT
     	LocalDate startDate = startDatePickerChartA.getValue();
@@ -237,18 +239,34 @@ public class Controller implements Initializable {
     	// If no countries are selected, graphs will not be generated
     	
     	
+    	ObservableList list = checkCBA2.getCheckModel().getCheckedItems();
+    	
+    	if (list.isEmpty() == true) {
+    		System.out.println("no countries selected");
+    		
+    		warningMessageA2.setWrapText(true);
+    		warningMessageA2.setText("no countries selected");
+    		return;
+    	}
+    	
     	//
     	
     	System.out.println("Error check completed");
     	
     	// Get Countries Value
+    	/*
     	ArrayList<String> countries = new ArrayList<String>();
     	countries.add("Afghanistan");
+    	*/
     	
     	
     	
     	String iDataset = textfieldDataset.getText();
-    	Country country = new Country("Afghanistan", startDate, endDate, "A2" , iDataset);
+    	
+    	for(Object obj : list) {
+    		
+    	
+    	Country country = new Country(obj.toString(), startDate, endDate, "A2" , iDataset);
     	
     	System.out.println(country.name);
     	
@@ -262,14 +280,18 @@ public class Controller implements Initializable {
     	series.setName(country.name);
 //    	
     	LineChartA.getData().add(series);
-
+    	}
     }
     
     @FXML
     void generateChartB(ActionEvent event) {
     	
+    	
     	System.out.println("Button is pressed "+ ((Button)event.getSource()).getText());
+    	
     	LineChartB.getData().clear();
+    	warningMessageB2.setText("");
+    	
     	LocalDate startDate = startDatePickerChartB.getValue();
     	LocalDate endDate = endDatePickerB.getValue();
 
@@ -300,14 +322,25 @@ public class Controller implements Initializable {
     	
     	//
     	
+    	ObservableList list = checkCBB2.getCheckModel().getCheckedItems();
+    	
+    	if (list.isEmpty() == true) {
+    		System.out.println("no countries selected");
+    		
+    		warningMessageB2.setWrapText(true);
+    		warningMessageB2.setText("no countries selected");
+    		return;
+    	}
+    	
     	System.out.println("Error check completed");
     	
     	// Get Countries Value
-    	ArrayList<String> countries = new ArrayList<String>();
-    	countries.add("Afghanistan");
+
     	
     	String iDataset = textfieldDataset.getText();
-    	Country country = new Country("Afghanistan", startDate, endDate, "B2" , iDataset);
+    	
+    	for(Object obj : list) {
+    	Country country = new Country(obj.toString(), startDate, endDate, "B2" , iDataset);
     	
     	System.out.println(country.name);
     	
@@ -321,14 +354,20 @@ public class Controller implements Initializable {
     	series.setName(country.name);
 //    	
     	LineChartB.getData().add(series);
+    	}
 
     }
+    
+    
     
     @FXML
     void generateChartC(ActionEvent event) {
     	
     	System.out.println("Button is pressed "+ ((Button)event.getSource()).getText());
+    	
     	LineChartC.getData().clear();
+    	warningMessageB2.setText("");
+
     	
     	LocalDate startDate = startDatePickerChartC.getValue();
     	LocalDate endDate = endDatePickerC.getValue();
@@ -354,14 +393,27 @@ public class Controller implements Initializable {
     		return;
     	}
     	
+
+    	ObservableList list = checkCBC2.getCheckModel().getCheckedItems();
+    	
+    	if (list.isEmpty() == true) {
+    		System.out.println("no countries selected");
+    		
+    		warningMessageB2.setWrapText(true);
+    		warningMessageB2.setText("no countries selected");
+    		return;
+    	}
+    	
+
     	System.out.println("Error check completed");
     	
     	// Get Countries Value
-    	ArrayList<String> countries = new ArrayList<String>();
-    	countries.add("Afghanistan");
+
     	
     	String iDataset = textfieldDataset.getText();
-    	Country country = new Country("Afghanistan", startDate, endDate, "C2" , iDataset);
+    	
+    	for(Object obj : list) {
+    	Country country = new Country(obj.toString(), startDate, endDate, "C2" , iDataset);
     	
     	System.out.println(country.name);
     	
@@ -375,6 +427,7 @@ public class Controller implements Initializable {
     	series.setName(country.name);
     	LineChartC.getData().add(series);
 
+    	}
     }
-
 }
+
