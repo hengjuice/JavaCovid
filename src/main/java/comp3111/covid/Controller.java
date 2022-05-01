@@ -17,6 +17,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.util.Pair;
 
+import javafx.scene.control.TableColumn;
+
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -155,6 +158,16 @@ public class Controller implements Initializable {
     @FXML
     private TableView TableViewC;
     
+    @FXML
+    private TableColumn<?, ?> casesPerMillionTableA;
+
+    @FXML
+    private TableColumn<?, ?> casesTableA;
+    
+    @FXML
+    private TableColumn<?, ?> countryTableA;
+    
+    
     // Charts
     @FXML
     private LineChart<String, Number> LineChartA;
@@ -258,7 +271,6 @@ public class Controller implements Initializable {
     	
     	// If no countries are selected, graphs will not be generated
     	
-    	/* ADD CODE HERE */
     	
     	ObservableList list = checkCBA2.getCheckModel().getCheckedItems();
     	
@@ -279,6 +291,8 @@ public class Controller implements Initializable {
     	ArrayList<String> countries = new ArrayList<String>();
     	countries.add("Afghanistan");
     	*/
+    	
+    	
     	
     	String iDataset = textfieldDataset.getText();
     	
@@ -392,6 +406,7 @@ public class Controller implements Initializable {
     	
     	LineChartC.getData().clear();
     	warningMessageB2.setText("");
+
     	
     	LocalDate startDate = startDatePickerChartC.getValue();
     	LocalDate endDate = endDatePickerC.getValue();
@@ -417,6 +432,7 @@ public class Controller implements Initializable {
     		return;
     	}
     	
+
     	ObservableList list = checkCBC2.getCheckModel().getCheckedItems();
     	
     	if (list.isEmpty() == true) {
@@ -427,6 +443,7 @@ public class Controller implements Initializable {
     		return;
     	}
     	
+
     	System.out.println("Error check completed");
     	
     	// Get Countries Value
