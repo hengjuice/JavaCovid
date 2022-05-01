@@ -54,3 +54,7 @@ run {
 }
 
 mainClassName = 'comp3111.covid.MyApplication'
+
+test {
+  testLogging.showStandardStreams = true
+}
