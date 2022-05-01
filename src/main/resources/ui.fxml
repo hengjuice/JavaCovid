@@ -44,17 +44,19 @@
                            <children>
                               <Label layoutX="79.0" layoutY="44.0" />
                               <Label layoutX="131.0" layoutY="61.0" text="select date" />
-                              <DatePicker layoutX="336.0" layoutY="57.0" />
+                              <DatePicker fx:id="datePickerA" layoutX="336.0" layoutY="57.0" />
                               <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Cases" />
                               <Button fx:id="buttonTableA" layoutX="264.0" layoutY="167.0" mnemonicParsing="false" onAction="#generateTable" text="generate table" />
-                              <TableView fx:id="TableViewA" layoutY="214.0" prefHeight="436.0" prefWidth="719.0">
+                              <TableView fx:id="TableViewA" layoutX="131.0" layoutY="226.0" prefHeight="243.0" prefWidth="431.0">
                                  <columns>
-                                  <TableColumn fx:id="countryTableA" prefWidth="124.66670227050781" text="Country" />
-                                    <TableColumn fx:id="casesPerMillionTableA" prefWidth="115.33331298828125" text="Cases per million" />
-                                  <TableColumn fx:id="casesTableA" prefWidth="100.66676330566406" text="Cases" />
+                                  <TableColumn fx:id="countryTableA" prefWidth="146.00003051757812" text="Country" />
+                                    <TableColumn fx:id="casesPerMillionTableA" prefWidth="148.0" text="Cases per million" />
+                                  <TableColumn fx:id="casesTableA" prefWidth="137.33333333333331" text="Cases" />
                                  </columns></TableView>
                               <CheckComboBox fx:id="checkCBA" layoutX="336.0" layoutY="112.0" />
+                              <Label fx:id="warningMessageA1" layoutX="131.0" layoutY="201.0" prefHeight="17.0" prefWidth="211.0" text="Label" />
+                              <Label fx:id="warningMessageA1b" layoutX="372.0" layoutY="201.0" prefHeight="17.0" prefWidth="188.0" text="Label" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -65,13 +67,20 @@
                            <children>
                               <Label layoutX="79.0" layoutY="44.0" />
                               <Label layoutX="131.0" layoutY="61.0" text="select date" />
-                              <DatePicker layoutX="336.0" layoutY="57.0" />
+                              <DatePicker fx:id="datePickerB" layoutX="336.0" layoutY="57.0" />
                               <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Deaths" />
-                              <Button fx:id="buttonTableB" layoutX="264.0" layoutY="167.0" mnemonicParsing="false" onAction="#generateTable" text="generate table" />
-                              <TableView fx:id="TableViewB" layoutY="214.0" prefHeight="436.0" prefWidth="719.0" />
+                              <Button fx:id="buttonTableB" layoutX="264.0" layoutY="167.0" mnemonicParsing="false" onAction="#generateTableB" text="generate table" />
+                              <TableView fx:id="TableViewB" layoutY="214.0" prefHeight="436.0" prefWidth="719.0">
+                                 <columns>
+                                    <TableColumn fx:id="countryTableB" prefWidth="179.99999487400055" text="Country" />
+                                    <TableColumn fx:id="deathsTableB" prefWidth="153.9999542236328" text="Deaths" />
+                                    <TableColumn fx:id="deathsPerMillionTableB" prefWidth="158.66668701171875" text="Deaths per million" />
+                                 </columns></TableView>
 
                               <CheckComboBox fx:id="checkCBB" layoutX="336.0" layoutY="112.0" />
+                              <Label fx:id="warningMessageB1" layoutX="131.0" layoutY="192.0" prefHeight="17.0" prefWidth="171.0" text="Label" />
+                              <Label fx:id="warningMessageB1b" layoutX="395.0" layoutY="192.0" prefHeight="17.0" prefWidth="163.0" text="Label" />
 
                            </children>
                         </AnchorPane>
@@ -83,12 +92,20 @@
                            <children>
                               <Label layoutX="79.0" layoutY="44.0" />
                               <Label layoutX="131.0" layoutY="61.0" text="select date" />
-                              <DatePicker layoutX="336.0" layoutY="57.0" />
+                              <DatePicker fx:id="datePickerC" layoutX="336.0" layoutY="57.0" />
                               <Label layoutX="131.0" layoutY="116.0" text="select countries of interest" />
                               <Label layoutX="266.0" layoutY="26.0" text="Confirmed Vaccinations" />
-                              <Button fx:id="buttonTableC" layoutX="264.0" layoutY="167.0" mnemonicParsing="false" onAction="#generateTable" text="generate table" />
-                              <TableView fx:id="TableViewC" layoutY="214.0" prefHeight="436.0" prefWidth="719.0" />
+                              <Button fx:id="buttonTableC" layoutX="264.0" layoutY="167.0" mnemonicParsing="false" onAction="#generateTableC" text="generate table" />
+                              <TableView fx:id="TableViewC" layoutY="214.0" prefHeight="436.0" prefWidth="719.0">
+                                 <columns>
+                                    <TableColumn fx:id="countryTableC" prefWidth="139.99999487400055" text="Country" />
+                                    <TableColumn fx:id="vaccinationsTableC" prefWidth="91.33331298828125" text="Vaccinations" />
+                                    <TableColumn fx:id="rateOfVaccinationsTableC" prefWidth="230.00001525878906" text="Rate of vaccination" />
+                                 </columns></TableView>
                               <CheckComboBox fx:id="checkCBC" layoutX="336.0" layoutY="112.0" />
+                              <Label fx:id="warningMessageC1" layoutX="131.0" layoutY="192.0" prefHeight="17.0" prefWidth="140.0" text="Label" />
+                              <Label fx:id="warningMessageC1b" layoutX="392.0" layoutY="192.0" text="Label" />
+                              <Label fx:id="warningMessageNoData" layoutX="67.0" layoutY="137.0" prefHeight="28.0" prefWidth="551.0" text="Beware: &quot;0&quot; in &quot;Vaccinations&quot; and/or &quot;Rate of Vaccination&quot; is likely to represent &quot;no data for this day&quot; " />
                            </children>
                         </AnchorPane>
                     </content>
