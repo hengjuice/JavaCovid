@@ -3,6 +3,8 @@ package comp3111.covid;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/** Check and validates input for dates, and accordingly returns errors if appropriate
+ */
 public class InputChecker {
 	
 	// Error object
@@ -11,15 +13,20 @@ public class InputChecker {
 	LocalDate startDate;
 	LocalDate endDate;
 	
-	
+	/** Constructor for chart tasks
+	 * @param startDate start date
+	 * @param endDate end date
+	 */
 	// Constructor
-	InputChecker(LocalDate startDate, LocalDate endDate)
+	public InputChecker(LocalDate startDate, LocalDate endDate)
 	{
 		this.startDate = startDate;
 		this.endDate = endDate;
 	}
-	
-	InputChecker(LocalDate startDate)
+	/** Constructor for table tasks
+	 * @param startDate selected date
+	 */
+	public InputChecker(LocalDate startDate)
 	{
 		this.startDate = startDate;
 	}

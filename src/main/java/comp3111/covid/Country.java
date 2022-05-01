@@ -6,10 +6,15 @@ import java.util.ArrayList;
 import javafx.util.Pair;
 import org.apache.commons.csv.*;
 import edu.duke.*;
-
+/** Represents a country and stores the data points for that country
+ */
 public class Country {
 	// Attributes
 	// Data Points
+	/** Constructs a CSV parser
+	 * @param  dataset  the csv dataset as a string
+	 * @return  the CSV parser object from the dataset
+	 */
 	public static CSVParser getFileParser(String dataset) {
 	     FileResource fr = new FileResource("dataset/" + dataset);
 	     return fr.getCSVParser(true);
@@ -55,6 +60,7 @@ public class Country {
 	// Three Types of Data
 	
 	
+
 	public LocalDate dateFormatter(String stringdate)
 	{
 		if(stringdate.contains("/"))
@@ -74,6 +80,7 @@ public class Country {
 		
 		
 	}
+
 	
 	// A1: Number of Confirmed COVID-19 Cases as of [Date of Interest]
 	public void getConfirmedCases(String dataset)
@@ -152,6 +159,9 @@ public class Country {
 	}
 	
 	
+	/** Gets the cumulative confirmed cases per 1M and adds to country's datapoints
+	 * @param  dataset  the csv dataset
+     */
 	// A2: Cumulative Confirmed COVID-19 Cases (per 1M)
 	public void getCumulativeConfirmedCases(String dataset)
 	{
@@ -176,6 +186,9 @@ public class Country {
 		}
 	}
 	
+	/** Gets the cumulative confirmed deaths per 1M and adds to country's datapoints
+	 * @param  dataset  the csv dataset
+     */
 	// B2: Cumulative Confirmed COVID-19 Deaths (per 1M)
 	public void getCumulativeDeaths(String dataset)
 	{
@@ -199,7 +212,9 @@ public class Country {
 			}
 		}
 	}
-	
+	/** Gets the cumulative vaccinations per 1M and adds to country's datapoints
+	 * @param  dataset  the csv dataset
+     */
 	// C2: Cumulative Rate of Vaccination against COVID-19
 	public void getCumulativeVaccination(String dataset)
 	{
