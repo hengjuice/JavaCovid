@@ -54,16 +54,28 @@ public class Controller implements Initializable {
 
     
     // FOR CHARTS
+    /** The start date picker for Chart A.
+     */
     @FXML
     public DatePicker startDatePickerChartA;
+    /** The start date picker for Chart B.
+     */
     @FXML
     public DatePicker startDatePickerChartB;
+    /** The start date picker for Chart C.
+     */
     @FXML
     public DatePicker startDatePickerChartC;
+    /** The end date picker for Chart A.
+     */
     @FXML
     public DatePicker endDatePickerA;
+    /** The end date picker for Chart B.
+     */
     @FXML
     public DatePicker endDatePickerB;
+    /** The end date picker for Chart C.
+     */
     @FXML
     public DatePicker endDatePickerC;
 
@@ -98,6 +110,8 @@ public class Controller implements Initializable {
     private TextField textfieldISO;
     
     @Override
+    /** Initialize the country checkboxes.
+     */
     public void initialize(URL url, ResourceBundle resourceBundle) {
     	String iDataset = textfieldDataset.getText();
     	ArrayList<String> countries = DataAnalysis.allCountriesArray(iDataset);
@@ -164,10 +178,16 @@ public class Controller implements Initializable {
     @FXML
     private CheckComboBox checkCBC2;
 
+    /** The label to display warning messages for A2.
+     */
     @FXML
     public Label warningMessageA2;
+    /** The label to display warning messages for B2.
+     */
     @FXML
     public Label warningMessageB2;
+    /** The label to display warning messages for C2.
+     */
     @FXML
     public Label warningMessageC2;
     
