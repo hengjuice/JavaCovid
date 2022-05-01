@@ -14,10 +14,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.util.Pair;
 
 import javafx.scene.control.TableColumn;
+
+
 
 
 import java.time.LocalDate;
@@ -28,6 +31,7 @@ import comp3111.covid.Chart;
 import comp3111.covid.InputChecker;
 import comp3111.covid.DataAnalysis;
 import comp3111.covid.Country;
+import comp3111.covid.TableEntry;
 
 import javafx.fxml.Initializable;
 import java.net.URL;
@@ -84,6 +88,14 @@ public class Controller implements Initializable {
 
     @FXML
     private DatePicker datePickerA;
+    
+
+    @FXML
+    private DatePicker datePickerB;
+    
+
+    @FXML
+    private DatePicker datePickerC;
 
     @FXML
     private Tab tabApp1;
@@ -112,10 +124,68 @@ public class Controller implements Initializable {
     @FXML
     private TextField textfieldISO;
     
+    @FXML
+    private TableView<TableEntry> TableViewA;
+    
+    @FXML
+    private TableView<TableEntry> TableViewB;
+    
+    @FXML
+    private TableView<TableEntry> TableViewC;
+    
+    @FXML
+    private TableColumn<TableEntry, Integer> casesPerMillionTableA;
+
+    @FXML
+    private TableColumn<TableEntry, Integer> casesTableA;
+    
+    @FXML
+    private TableColumn<TableEntry, String> countryTableA;
+    
+    @FXML
+    private TableColumn<TableEntry, String> countryTableB;
+    
+    @FXML
+    private TableColumn<TableEntry, Integer> deathsPerMillionTableB;
+
+    @FXML
+    private TableColumn<TableEntry, Integer> deathsTableB;
+    
+    @FXML
+    private TableColumn<TableEntry, String> countryTableC;
+    
+    @FXML
+    private TableColumn<TableEntry, Integer> rateOfVaccinationsTableC;
+    
+    @FXML
+    private TableColumn<TableEntry, Integer> vaccinationsTableC;
+    
     @Override
     /** Initialize the country checkboxes.
      */
     public void initialize(URL url, ResourceBundle resourceBundle) {
+    	
+    	countryTableA.setCellValueFactory(new PropertyValueFactory<TableEntry,String>("name"));
+    	casesTableA.setCellValueFactory(new PropertyValueFactory<TableEntry,Integer>("data1"));
+    	casesPerMillionTableA.setCellValueFactory(new PropertyValueFactory<TableEntry,Integer>("data2"));
+    	
+    	countryTableB.setCellValueFactory(new PropertyValueFactory<TableEntry,String>("name"));
+    	deathsTableB.setCellValueFactory(new PropertyValueFactory<TableEntry,Integer>("data1"));
+    	deathsPerMillionTableB.setCellValueFactory(new PropertyValueFactory<TableEntry,Integer>("data2"));
+    	
+    	countryTableC.setCellValueFactory(new PropertyValueFactory<TableEntry,String>("name"));
+    	vaccinationsTableC.setCellValueFactory(new PropertyValueFactory<TableEntry,Integer>("data1"));
+    	rateOfVaccinationsTableC.setCellValueFactory(new PropertyValueFactory<TableEntry,Integer>("data2"));
+    	
+    	warningMessageA1.setText("");
+    	warningMessageA1b.setText("");
+    	
+    	warningMessageB1.setText("");
+    	warningMessageB1b.setText("");
+    	
+    	warningMessageC1.setText("");
+    	warningMessageC1b.setText("");
+    	
     	String iDataset = textfieldDataset.getText();
     	ArrayList<String> countries = DataAnalysis.allCountriesArray(iDataset);
     	
@@ -151,21 +221,10 @@ public class Controller implements Initializable {
     private Button buttonTableC;
     
     // Tables
-    @FXML
-    private TableView TableViewA;
-    @FXML
-    private TableView TableViewB;
-    @FXML
-    private TableView TableViewC;
-    
-    @FXML
-    private TableColumn<?, ?> casesPerMillionTableA;
 
-    @FXML
-    private TableColumn<?, ?> casesTableA;
+
     
-    @FXML
-    private TableColumn<?, ?> countryTableA;
+
     
     
     // Charts
@@ -190,6 +249,24 @@ public class Controller implements Initializable {
     private CheckComboBox checkCBB2;
     @FXML
     private CheckComboBox checkCBC2;
+    
+    @FXML
+    private Label warningMessageA1;
+    
+    @FXML
+    private Label warningMessageA1b;
+    
+    @FXML
+    private Label warningMessageB1;
+
+    @FXML
+    private Label warningMessageB1b;
+    
+    @FXML
+    private Label warningMessageC1;
+
+    @FXML
+    private Label warningMessageC1b;
 
     /** The label to display warning messages for A2.
      */
@@ -203,6 +280,9 @@ public class Controller implements Initializable {
      */
     @FXML
     public Label warningMessageC2;
+    
+    @FXML
+    private Label warningMessageNoData;
     
     @FXML
     void doConfirmedCases(ActionEvent event) {
@@ -222,20 +302,133 @@ public class Controller implements Initializable {
     @FXML
     void generateTable(ActionEvent event) {
     	
+    	TableViewA.getItems().clear();
+    	warningMessageA1.setText("");
+    	warningMessageA1b.setText("");
+    	
     	LocalDate Date = datePickerA.getValue();
+    	
+    	if (Date == null) {
+    		warningMessageA1.setText("no date selected");
+    	}
     	
     	ObservableList list = checkCBA.getCheckModel().getCheckedItems();
     	
-    	if (list.isEmpty() == true) {
-    		System.out.println("No countries are selected");
-    	}
- 
-    	//for testing
     	System.out.println(list.get(0));
     	
+    	if (list.isEmpty() == true) {
+
+    		System.out.println("no countries selected");
+    		warningMessageA1b.setText("no countries selected");
+    	}
     	
-    	for(Object obj : list)
-    		System.out.println(obj.toString());
+    	String iDataset = textfieldDataset.getText();
+    	
+    	for(Object obj : list) {	
+    	Country country = new Country(obj.toString(), Date, "A1" , iDataset);
+    	
+    	
+    	/*
+    	ObservableList<TableEntry> listTable = FXCollections.observableArrayList(
+    			new TableEntry(country.name,country.tabledatapoint.getKey() ,country.tabledatapoint.getValue())
+    			   			
+    			);
+    	
+    	listTable.add(new TableEntry(country.name,country.tabledatapoint.getKey() ,country.tabledatapoint.getValue()));
+    	*/
+    	
+    	TableEntry newTableEntry = new TableEntry(country.name,country.tabledatapoint.getKey() ,country.tabledatapoint.getValue());	
+    	TableViewA.getItems().add(newTableEntry);
+    	}
+
+    }
+    
+    @FXML
+    void generateTableB(ActionEvent event) {
+    	
+    	TableViewB.getItems().clear();
+    	warningMessageB1.setText("");
+    	warningMessageB1b.setText("");
+    	
+    	LocalDate Date = datePickerB.getValue();
+    	
+    	if (Date == null) {
+    		warningMessageB1.setText("no date selected");
+    	}
+    	
+    	ObservableList list = checkCBB.getCheckModel().getCheckedItems();
+    	
+    	System.out.println(list.get(0));
+    	
+    	if (list.isEmpty() == true) {
+    		System.out.println("no countries selected");
+    		warningMessageB1b.setText("no countries selected");
+    	}
+    	
+    	String iDataset = textfieldDataset.getText();
+    	
+    	for(Object obj : list) {	
+    	Country country = new Country(obj.toString(), Date, "B1" , iDataset);
+    	
+    	
+    	/*
+    	ObservableList<TableEntry> listTable = FXCollections.observableArrayList(
+    			new TableEntry(country.name,country.tabledatapoint.getKey() ,country.tabledatapoint.getValue())
+    			   			
+    			);
+    	
+    	listTable.add(new TableEntry(country.name,country.tabledatapoint.getKey() ,country.tabledatapoint.getValue()));
+    	*/
+    	
+    	TableEntry newTableEntry = new TableEntry(country.name,country.tabledatapoint.getKey() ,country.tabledatapoint.getValue());	
+    	TableViewB.getItems().add(newTableEntry);
+    	}
+    }
+
+    @FXML
+    void generateTableC(ActionEvent event) {
+    	
+    	TableViewC.getItems().clear();
+    	warningMessageC1.setText("");
+    	warningMessageC1b.setText("");
+    	
+    	LocalDate Date = datePickerC.getValue();
+    	
+    	if (Date == null) {
+    		warningMessageC1.setText("no date selected");
+
+    		System.out.println("No countries are selected");
+
+    	}
+    	
+    	ObservableList list = checkCBC.getCheckModel().getCheckedItems();
+    	
+    	System.out.println(list.get(0));
+    	
+    	if (list.isEmpty() == true) {
+    		System.out.println("no countries selected");
+    		warningMessageC1b.setText("no countries selected");
+    	}
+    	
+    	String iDataset = textfieldDataset.getText();
+    	
+    	for(Object obj : list) {	
+    	Country country = new Country(obj.toString(), Date, "C1" , iDataset);
+    	
+    	
+    	/*
+    	ObservableList<TableEntry> listTable = FXCollections.observableArrayList(
+    			new TableEntry(country.name,country.tabledatapoint.getKey() ,country.tabledatapoint.getValue())
+    			   			
+    			);
+    	
+    	listTable.add(new TableEntry(country.name,country.tabledatapoint.getKey() ,country.tabledatapoint.getValue()));
+    	*/
+    	
+    	TableEntry newTableEntry = new TableEntry(country.name,country.tabledatapoint.getKey() ,country.tabledatapoint.getValue());	
+    	TableViewC.getItems().add(newTableEntry);
+    	}
+
     }
     
     @FXML

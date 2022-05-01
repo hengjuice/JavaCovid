@@ -98,7 +98,9 @@ public class Country {
 				{
 					//3 columns with proper headings of "Country", "Total Cases", and "Total Cases (per 1M)"
 					total_cases = Integer.parseInt(rec.get("total_cases"));
-					total_cases_pm = Integer.parseInt(rec.get("total_cases_per_million"));
+					//total_cases_pm = Integer.parseInt(rec.get("total_cases_per_million"));
+					total_cases_pm = (int) Double.parseDouble(rec.get("total_cases_per_million"));
+					//int i = (int) Double.parseDouble(someString)
 					tabledatapoint = new Pair<Integer, Integer>(total_cases, total_cases_pm);
 				}
 			}
@@ -119,7 +121,7 @@ public class Country {
 				{
 					//3 columns with proper headings of "Country", "Total Deaths", and "Total Deaths (per 1M)"
 					total_deaths = Integer.parseInt(rec.get("total_deaths"));
-					total_deaths_pm = Integer.parseInt(rec.get("total_deaths_per_million"));
+					total_deaths_pm = (int) Double.parseDouble(rec.get("total_deaths_per_million"));
 					tabledatapoint = new Pair<Integer, Integer>(total_deaths, total_deaths_pm);
 				}
 			}
@@ -141,9 +143,16 @@ public class Country {
 				if(date.isEqual(startDate))
 				{
 					//3 columns with proper headings of "Country", "Fully Vaccinated", and "Rate of Vaccination"
-					total_vaccinated = Integer.parseInt(rec.get("people_fully_vaccinated"));
-					population = Integer.parseInt(rec.get("population"));
-					if(population != 0) rate_of_vaccination = total_vaccinated/population * 100;
+					if(rec.get("people_fully_vaccinated")!="") {
+						total_vaccinated = Integer.parseInt(rec.get("people_fully_vaccinated"));
+						population = Integer.parseInt(rec.get("population"));
+						if(population != 0) rate_of_vaccination = (int) ((float)total_vaccinated/population * 100);
+						else rate_of_vaccination=0;
+						tabledatapoint = new Pair<Integer, Integer>(total_vaccinated, rate_of_vaccination);
+					}
+					else {
+						tabledatapoint = new Pair<Integer, Integer>(0, 0);
+					}
 				}
 			}
 		}			
