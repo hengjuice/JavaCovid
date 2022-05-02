@@ -15,7 +15,11 @@ public class CountryTester {
 		
 	}
 
-
+	@Test
+	public void testA1() {
+		Country test1 = new Country("China", LocalDate.parse("2022-04-12"), "A1", "COVID_Dataset_v1.0.csv");
+		assertEquals(test1.name,"China");
+	}
 	@Test
 	public void testA2() {
 		Country test1 = new Country("China", LocalDate.parse("2020-04-12"), "A2", "COVID_Dataset_v1.0.csv");
@@ -40,5 +44,20 @@ public class CountryTester {
 	public void testB3() {
 		Country test1 = new Country("Chile", LocalDate.parse("2020-04-12"), LocalDate.parse("2020-05-12"), "B3", "COVID_Dataset_v1.0.csv");
 		assertEquals(test1.name,"Chile");
+	}
+	@Test
+	public void getconf() {
+		Country test1 = new Country("Hong Kong", LocalDate.parse("2020-04-12"), LocalDate.parse("2021-12-12"), "B3", "COVID_Dataset_v1.0.csv");
+		test1.getConfirmedCases("COVID_Dataset_v1.0.csv");
+		test1.getConfirmedDeaths("COVID_Dataset_v1.0.csv");
+		test1.getVaccinationRate("COVID_Dataset_v1.0.csv");
+		test1.getCumulativeConfirmedCases("COVID_Dataset_v1.0.csv");
+		test1.getCumulativeDeaths("COVID_Dataset_v1.0.csv");
+		test1.getCumulativeVaccination("COVID_Dataset_v1.0.csv");
+		assertEquals(test1.name,"Hong Kong");
+	}
+	public void datef() {
+		Country test1 = new Country("Chile", LocalDate.parse("2020-04-12"), LocalDate.parse("2021-12-12"), "B3", "COVID_Dataset_v1.0.csv");
+		assertEquals(test1.dateFormatter("2020"),LocalDate.parse("2020"));
 	}
 }

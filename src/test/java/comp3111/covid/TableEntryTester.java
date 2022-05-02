@@ -12,7 +12,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ControllerTester {
+public class TableEntryTester {
 
 	@Before
 	public void setUp() throws Exception {
@@ -22,6 +22,7 @@ public class ControllerTester {
 
 	@Test
 	public void test() {
-		assertEquals(1,1);
+		TableEntry tester1=new TableEntry("Hello",1,2);
+		assertEquals(tester1.getName(),"Hello");
 	}
 }
