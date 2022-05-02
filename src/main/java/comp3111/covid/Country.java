@@ -270,7 +270,9 @@ public class Country {
 			}
 		}
 	}
-	
+	/** Gets the worst day in history of countries selected according to new_deaths
+	 * @param  dataset  the csv dataset
+     */
 	// D: Get worst day in history of countries selected according to new_deaths
 	public void getWorstDay(String dataset)
 	{

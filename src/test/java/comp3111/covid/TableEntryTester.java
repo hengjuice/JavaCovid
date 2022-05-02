@@ -22,7 +22,9 @@ public class TableEntryTester {
 
 	@Test
 	public void test() {
-		TableEntry tester1=new TableEntry("Hello",1,2);
+		TableEntry tester1=new TableEntry("Hello",1.1F,2.2F);
 		assertEquals(tester1.getName(),"Hello");
+		TableEntry tester2=new TableEntry("Hello",LocalDate.parse("2020-04-12"),2.2F);
+		assertEquals(tester2.getName(),"Hello");
 	}
 }
