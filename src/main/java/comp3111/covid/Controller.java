@@ -105,6 +105,9 @@ public class Controller implements Initializable {
 
     @FXML
     private Tab tabApp3;
+    
+    @FXML
+    private Tab tabApp4;
 
     @FXML
     private Tab tabReport1;
@@ -132,9 +135,18 @@ public class Controller implements Initializable {
     
     @FXML
     private TableView<TableEntry> TableViewC;
+  
+    
+    @FXML
+    private TableView<TableEntry> TableViewD;
     
     @FXML
     private TableColumn<TableEntry, Float> casesPerMillionTableA;
+
+    
+    @FXML
+    private TableColumn<TableEntry, Integer> casesPerMillionTableA;
+
 
     @FXML
     private TableColumn<TableEntry, Float> casesTableA;
@@ -160,6 +172,18 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn<TableEntry, Float> vaccinationsTableC;
     
+    @FXML
+    private TableColumn<TableEntry, String> countryTableD;
+    
+    @FXML
+    private TableColumn<TableEntry, LocalDate> dateTableD;
+    
+    @FXML
+    private TableColumn<TableEntry, Integer> newDeathsTableD;
+    
+    
+    
+    
     @Override
     /** Initialize the country checkboxes.
      */
@@ -177,6 +201,10 @@ public class Controller implements Initializable {
     	vaccinationsTableC.setCellValueFactory(new PropertyValueFactory<TableEntry,Float>("data1"));
     	rateOfVaccinationsTableC.setCellValueFactory(new PropertyValueFactory<TableEntry,Float>("data2"));
     	
+    	countryTableD.setCellValueFactory(new PropertyValueFactory<TableEntry,String>("name"));
+    	dateTableD.setCellValueFactory(new PropertyValueFactory<TableEntry, LocalDate>("data3"));
+    	newDeathsTableD.setCellValueFactory(new PropertyValueFactory<TableEntry,Integer>("data2"));
+    	
     	warningMessageA1.setText("");
     	warningMessageA1b.setText("");
     	
@@ -185,6 +213,8 @@ public class Controller implements Initializable {
     	
     	warningMessageC1.setText("");
     	warningMessageC1b.setText("");
+    	
+    	warningMessageD.setText("");
     	
     	String iDataset = textfieldDataset.getText();
     	ArrayList<String> countries = DataAnalysis.allCountriesArray(iDataset);
@@ -198,6 +228,8 @@ public class Controller implements Initializable {
     		checkCBA2.getItems().add(country);
     		checkCBB2.getItems().add(country);
     		checkCBC2.getItems().add(country);
+    		
+    		checkD.getItems().add(country);
     		
     	}
     	
@@ -220,6 +252,8 @@ public class Controller implements Initializable {
     @FXML
     private Button buttonTableC;
     
+    @FXML
+    private Button buttonTableD;
     // Tables
 
 
@@ -249,6 +283,8 @@ public class Controller implements Initializable {
     private CheckComboBox checkCBB2;
     @FXML
     private CheckComboBox checkCBC2;
+    @FXML
+    private CheckComboBox checkD;
     
     @FXML
     private Label warningMessageA1;
@@ -290,6 +326,9 @@ public class Controller implements Initializable {
     @FXML
     public Label warningMessageC2;
     
+    
+    @FXML
+    private Label warningMessageD;
     
     @FXML
     void doConfirmedCases(ActionEvent event) {
@@ -444,6 +483,39 @@ public class Controller implements Initializable {
     	}
 
     }
+    @FXML
+    void generateTableD(ActionEvent event) {
+    	TableViewD.getItems().clear();
+    	warningMessageD.setText("");
+    	
+    	LocalDate Date = datePickerC.getValue();
+    	
+    	if (Date == null) {
+    		warningMessageD.setText("no date selected");
+
+    		System.out.println("No countries are selected");
+
+    	}
+    	
+    	ObservableList list = checkD.getCheckModel().getCheckedItems();
+    	
+    	System.out.println(list.get(0));
+    	
+    	if (list.isEmpty() == true) {
+    		System.out.println("no countries selected");
+    		warningMessageD.setText("no countries selected");
+    		return;
+    	}
+    	
+    	String iDataset = textfieldDataset.getText();
+    	
+    	for(Object obj : list) {	
+	    	Country country = new Country(obj.toString(), "D" , iDataset);
+	    	TableEntry newTableEntry = new TableEntry(country.name,country.tableDdatapoint.getKey() ,country.tableDdatapoint.getValue());	
+	    	TableViewD.getItems().add(newTableEntry);
+	    	warningMessageD.setText("");
+    	}
+    }
     
     @FXML
     void generateChartA(ActionEvent event) {
@@ -523,6 +595,7 @@ public class Controller implements Initializable {
     	LineChartA.getXAxis().setLabel("Date");
     	LineChartA.getYAxis().setLabel("Cumulative Cases");
     	LineChartA.getXAxis().setAnimated(false);
+    	LineChartA.setTitle("Graph of Cumulative Cases Over Time");
     	}
     }
     
@@ -600,6 +673,7 @@ public class Controller implements Initializable {
     	LineChartB.getXAxis().setLabel("Date");
     	LineChartB.getYAxis().setLabel("Cumulative Deaths");
     	LineChartB.getXAxis().setAnimated(false);
+    	LineChartB.setTitle("Graph of Cumulative Deaths Over Time");
     	}
 
     }
@@ -675,6 +749,7 @@ public class Controller implements Initializable {
     	LineChartC.getXAxis().setLabel("Date");
     	LineChartC.getYAxis().setLabel("% Vaccinated");
     	LineChartC.getXAxis().setAnimated(false);
+    	LineChartC.setTitle("Graph of Vaccination Rate Over Time");
     	}
     }
 }
