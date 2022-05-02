@@ -591,7 +591,7 @@ public class Controller implements Initializable {
     	LineChartA.getXAxis().setLabel("Date");
     	LineChartA.getYAxis().setLabel("Cumulative Cases");
     	LineChartA.getXAxis().setAnimated(false);
-    	LineChartA.setTitle("Graph of Cumulative Cases Over Time");
+    	LineChartA.setTitle("Cumulative Confirmed COVID-19 Cases (per 1M)");
     	}
     }
     
@@ -669,7 +669,7 @@ public class Controller implements Initializable {
     	LineChartB.getXAxis().setLabel("Date");
     	LineChartB.getYAxis().setLabel("Cumulative Deaths");
     	LineChartB.getXAxis().setAnimated(false);
-    	LineChartB.setTitle("Graph of Cumulative Deaths Over Time");
+    	LineChartB.setTitle("Cumulative Confirmed COVID-19 Deaths (per 1M)");
     	}
 
     }
@@ -745,7 +745,7 @@ public class Controller implements Initializable {
     	LineChartC.getXAxis().setLabel("Date");
     	LineChartC.getYAxis().setLabel("% Vaccinated");
     	LineChartC.getXAxis().setAnimated(false);
-    	LineChartC.setTitle("Graph of Vaccination Rate Over Time");
+    	LineChartC.setTitle("Cumulative Rate of Vaccination against COVID-19");
     	}
     }
 }

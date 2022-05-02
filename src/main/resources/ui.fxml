@@ -227,18 +227,18 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <Label />
-                              <Label layoutX="183.0" layoutY="110.0" text="select countries of interest" />
-                              <Button fx:id="buttonTableD" layoutX="301.0" layoutY="282.0" mnemonicParsing="false" onAction="#generateTableD" text="generate table" />
-                              <TableView fx:id="TableViewD" layoutY="325.0" prefHeight="325.0" prefWidth="719.0">
+                              <Label layoutX="182.0" layoutY="64.0" text="select countries of interest" />
+                              <Button fx:id="buttonTableD" layoutX="293.0" layoutY="113.0" mnemonicParsing="false" onAction="#generateTableD" text="generate table" />
+                              <TableView fx:id="TableViewD" layoutY="175.0" prefHeight="325.0" prefWidth="719.0">
                                  <columns>
                                     <TableColumn fx:id="countryTableD" prefWidth="225.0" text="Country" />
                                     <TableColumn fx:id="dateTableD" prefWidth="234.0" text="Date" />
                                     <TableColumn fx:id="newDeathsTableD" prefWidth="259.0" text="New Deaths" />
                                  </columns>
                               </TableView>
-                              <CheckComboBox fx:id="checkD" layoutX="369.0" layoutY="106.0" />
-                              <Label fx:id="warningMessageD" layoutX="263.0" layoutY="253.0" prefHeight="17.0" prefWidth="188.0" />
-                              <Label layoutX="243.0" layoutY="48.0" text="Worst Day in Country's history" />
+                              <CheckComboBox fx:id="checkD" layoutX="369.0" layoutY="60.0" />
+                              <Label fx:id="warningMessageD" layoutX="292.0" layoutY="148.0" prefHeight="17.0" prefWidth="188.0" />
+                              <Label layoutX="242.0" layoutY="27.0" text="Worst Day in Country's History" />
                            </children>
                         </AnchorPane>
                     </content>
