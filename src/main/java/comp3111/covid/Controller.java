@@ -143,10 +143,6 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn<TableEntry, Float> casesPerMillionTableA;
 
-    
-    @FXML
-    private TableColumn<TableEntry, Integer> casesPerMillionTableA;
-
 
     @FXML
     private TableColumn<TableEntry, Float> casesTableA;

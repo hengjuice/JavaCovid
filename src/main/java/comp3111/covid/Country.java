@@ -32,7 +32,7 @@ public class Country {
 	Pair<Float, Float> tabledatapoint = new Pair<Float, Float>(null, null);
 
 	// Pair<Integer, Integer> tabledatapoint = new Pair<Integer, Integer>(null, null);
-	Pair<LocalDate, Integer> tableDdatapoint = new Pair<LocalDate, Integer>(null, null);
+	Pair<LocalDate, Float> tableDdatapoint = new Pair<LocalDate, Float>(null, null);
 	
 	Country(String name, String task, String dataset)
 	{
@@ -274,7 +274,7 @@ public class Country {
 	// D: Get worst day in history of countries selected according to new_deaths
 	public void getWorstDay(String dataset)
 	{
-		int maxDeaths = 0;
+		float maxDeaths = 0;
 		LocalDate worstDay = null;
 		System.out.println("getWorstDay from " + dataset);
 		for(CSVRecord rec : getFileParser(dataset)) {
@@ -288,12 +288,12 @@ public class Country {
 				String s1 = rec.get("new_deaths");
 				if(!s1.equals(""))
 				{
-					int d = Integer.parseInt(rec.get("new_deaths"));
+					float d = Float.parseFloat(rec.get("new_deaths"));
 					if (d >= maxDeaths) {maxDeaths = d; worstDay = date;}
 				}
 			}
 		}
-		tableDdatapoint = new Pair<LocalDate, Integer>(worstDay, (Integer) maxDeaths);
+		tableDdatapoint = new Pair<LocalDate, Float>(worstDay, maxDeaths);
 		System.out.println("Added:"+tableDdatapoint);
 	}
 	
