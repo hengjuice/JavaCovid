@@ -136,6 +136,34 @@ public class InputChecker {
 		return error_statements;
 	}
 	
+	boolean isMonthValid(String month) {
+    	if (month == "Jan"){return true;}
+    	if (month == "Feb"){return true;}
+    	if (month == "Mar"){return true;}
+    	if (month == "Apr"){return true;}
+    	if (month == "May"){return true;}
+    	if (month == "Jun"){return true;}
+    	if (month == "Jul"){return true;}
+    	if (month == "Aug"){return true;}
+    	if (month == "Sep"){return true;}
+    	if (month == "Oct"){return true;}
+    	if (month == "Nov"){return true;}
+    	if (month == "Dec"){return true;}
+    	if (month == "jan"){return true;}
+    	if (month == "feb"){return true;}
+    	if (month == "mar"){return true;}
+    	if (month == "apr"){return true;}
+    	if (month == "may"){return true;}
+    	if (month == "jun"){return true;}
+    	if (month == "jul"){return true;}
+    	if (month == "aug"){return true;}
+    	if (month == "sep"){return true;}
+    	if (month == "oct"){return true;}
+    	if (month == "nov"){return true;}
+    	if (month == "dec"){return true;}
+    	return false;
+	}
+	
 	// Checking data availability
 	void dataValidityCheck() {
 		
