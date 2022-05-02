@@ -135,15 +135,21 @@ public class Controller implements Initializable {
     
     @FXML
     private TableView<TableEntry> TableViewC;
+  
     
     @FXML
     private TableView<TableEntry> TableViewD;
     
     @FXML
+    private TableColumn<TableEntry, Float> casesPerMillionTableA;
+
+    
+    @FXML
     private TableColumn<TableEntry, Integer> casesPerMillionTableA;
 
+
     @FXML
-    private TableColumn<TableEntry, Integer> casesTableA;
+    private TableColumn<TableEntry, Float> casesTableA;
     
     @FXML
     private TableColumn<TableEntry, String> countryTableA;
@@ -152,19 +158,19 @@ public class Controller implements Initializable {
     private TableColumn<TableEntry, String> countryTableB;
     
     @FXML
-    private TableColumn<TableEntry, Integer> deathsPerMillionTableB;
+    private TableColumn<TableEntry, Float> deathsPerMillionTableB;
 
     @FXML
-    private TableColumn<TableEntry, Integer> deathsTableB;
+    private TableColumn<TableEntry, Float> deathsTableB;
     
     @FXML
     private TableColumn<TableEntry, String> countryTableC;
     
     @FXML
-    private TableColumn<TableEntry, Integer> rateOfVaccinationsTableC;
+    private TableColumn<TableEntry, Float> rateOfVaccinationsTableC;
     
     @FXML
-    private TableColumn<TableEntry, Integer> vaccinationsTableC;
+    private TableColumn<TableEntry, Float> vaccinationsTableC;
     
     @FXML
     private TableColumn<TableEntry, String> countryTableD;
@@ -184,16 +190,16 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     	
     	countryTableA.setCellValueFactory(new PropertyValueFactory<TableEntry,String>("name"));
-    	casesTableA.setCellValueFactory(new PropertyValueFactory<TableEntry,Integer>("data1"));
-    	casesPerMillionTableA.setCellValueFactory(new PropertyValueFactory<TableEntry,Integer>("data2"));
+    	casesTableA.setCellValueFactory(new PropertyValueFactory<TableEntry,Float>("data1"));
+    	casesPerMillionTableA.setCellValueFactory(new PropertyValueFactory<TableEntry,Float>("data2"));
     	
     	countryTableB.setCellValueFactory(new PropertyValueFactory<TableEntry,String>("name"));
-    	deathsTableB.setCellValueFactory(new PropertyValueFactory<TableEntry,Integer>("data1"));
-    	deathsPerMillionTableB.setCellValueFactory(new PropertyValueFactory<TableEntry,Integer>("data2"));
+    	deathsTableB.setCellValueFactory(new PropertyValueFactory<TableEntry,Float>("data1"));
+    	deathsPerMillionTableB.setCellValueFactory(new PropertyValueFactory<TableEntry,Float>("data2"));
     	
     	countryTableC.setCellValueFactory(new PropertyValueFactory<TableEntry,String>("name"));
-    	vaccinationsTableC.setCellValueFactory(new PropertyValueFactory<TableEntry,Integer>("data1"));
-    	rateOfVaccinationsTableC.setCellValueFactory(new PropertyValueFactory<TableEntry,Integer>("data2"));
+    	vaccinationsTableC.setCellValueFactory(new PropertyValueFactory<TableEntry,Float>("data1"));
+    	rateOfVaccinationsTableC.setCellValueFactory(new PropertyValueFactory<TableEntry,Float>("data2"));
     	
     	countryTableD.setCellValueFactory(new PropertyValueFactory<TableEntry,String>("name"));
     	dateTableD.setCellValueFactory(new PropertyValueFactory<TableEntry, LocalDate>("data3"));
@@ -297,6 +303,15 @@ public class Controller implements Initializable {
 
     @FXML
     private Label warningMessageC1b;
+    
+    @FXML
+    private Label titleTableA;
+
+    @FXML
+    private Label titleTableB;
+
+    @FXML
+    private Label titleTableC;
 
     /** The label to display warning messages for A2.
      */
@@ -311,8 +326,6 @@ public class Controller implements Initializable {
     @FXML
     public Label warningMessageC2;
     
-    @FXML
-    private Label warningMessageNoData;
     
     @FXML
     private Label warningMessageD;
@@ -348,6 +361,7 @@ public class Controller implements Initializable {
     	ObservableList list = checkCBA.getCheckModel().getCheckedItems();
     	
     	System.out.println(list.get(0));
+    	//System.out.println("the date is " + Date);
     	
     	if (list.isEmpty() == true) {
 
@@ -372,6 +386,8 @@ public class Controller implements Initializable {
     	
     	TableEntry newTableEntry = new TableEntry(country.name,country.tabledatapoint.getKey() ,country.tabledatapoint.getValue());	
     	TableViewA.getItems().add(newTableEntry);
+    	titleTableA.setText("Number of Confirmed COVID-19 Cases as of " + Date);
+    	warningMessageA1b.setText("Beware: \"NaN\" or empty fields represents \"no data for this day\" ");
     	}
 
     }
@@ -415,6 +431,8 @@ public class Controller implements Initializable {
     	
     	TableEntry newTableEntry = new TableEntry(country.name,country.tabledatapoint.getKey() ,country.tabledatapoint.getValue());	
     	TableViewB.getItems().add(newTableEntry);
+    	titleTableB.setText("Number of Confirmed COVID-19 Deaths as of " + Date);
+    	warningMessageB1b.setText("Beware: \"NaN\" or empty fields represents \"no data for this day\" ");
     	}
     }
 
@@ -460,6 +478,8 @@ public class Controller implements Initializable {
     	
     	TableEntry newTableEntry = new TableEntry(country.name,country.tabledatapoint.getKey() ,country.tabledatapoint.getValue());	
     	TableViewC.getItems().add(newTableEntry);
+    	titleTableC.setText("Rate of Vaccination against COVID-19 as of " + Date);
+    	warningMessageC1b.setText("Beware: \"NaN\" or empty fields represents \"no data for this day\" ");
     	}
 
     }

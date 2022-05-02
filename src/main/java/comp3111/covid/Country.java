@@ -28,7 +28,10 @@ public class Country {
 	ArrayList<Pair<LocalDate, Float>> chartdatapoints = new ArrayList<Pair<LocalDate, Float>>();
 	LocalDate startDate;
 	LocalDate endDate;
-	Pair<Integer, Integer> tabledatapoint = new Pair<Integer, Integer>(null, null);
+
+	Pair<Float, Float> tabledatapoint = new Pair<Float, Float>(null, null);
+
+	// Pair<Integer, Integer> tabledatapoint = new Pair<Integer, Integer>(null, null);
 	Pair<LocalDate, Integer> tableDdatapoint = new Pair<LocalDate, Integer>(null, null);
 	
 	Country(String name, String task, String dataset)
@@ -95,8 +98,8 @@ public class Country {
 	// A1: Number of Confirmed COVID-19 Cases as of [Date of Interest]
 	public void getConfirmedCases(String dataset)
 	{
-		int total_cases;
-		int total_cases_pm;
+		float total_cases;
+		float total_cases_pm;
 		System.out.println("getConfirmedCases from " + dataset);
 		for(CSVRecord rec : getFileParser(dataset)) {
 			if (rec.get("location").equals(this.name))
@@ -107,11 +110,14 @@ public class Country {
 				if(date.isEqual(startDate))
 				{
 					//3 columns with proper headings of "Country", "Total Cases", and "Total Cases (per 1M)"
-					total_cases = Integer.parseInt(rec.get("total_cases"));
-					//total_cases_pm = Integer.parseInt(rec.get("total_cases_per_million"));
-					total_cases_pm = (int) Double.parseDouble(rec.get("total_cases_per_million"));
-					//int i = (int) Double.parseDouble(someString)
-					tabledatapoint = new Pair<Integer, Integer>(total_cases, total_cases_pm);
+					if(rec.get("total_cases")=="") {
+						tabledatapoint = new Pair<Float, Float>(Float.NaN, Float.NaN);
+					}
+					else {
+						total_cases = Float.parseFloat(rec.get("total_cases"));
+						total_cases_pm = Float.parseFloat(rec.get("total_cases_per_million"));
+						tabledatapoint = new Pair<Float, Float>(total_cases, total_cases_pm);
+					}
 				}
 			}
 		}
@@ -119,7 +125,7 @@ public class Country {
 	// B1: Number of Confirmed COVID-19 Deaths as of [Date of Interest]
 	public void getConfirmedDeaths(String dataset)
 	{
-		int total_deaths, total_deaths_pm;
+		float total_deaths, total_deaths_pm;
 		System.out.println("getConfirmedDeaths from " + dataset);
 		for(CSVRecord rec : getFileParser(dataset)) {
 			if (rec.get("location").equals(this.name))
@@ -130,9 +136,15 @@ public class Country {
 				if(date.isEqual(startDate))
 				{
 					//3 columns with proper headings of "Country", "Total Deaths", and "Total Deaths (per 1M)"
-					total_deaths = Integer.parseInt(rec.get("total_deaths"));
-					total_deaths_pm = (int) Double.parseDouble(rec.get("total_deaths_per_million"));
-					tabledatapoint = new Pair<Integer, Integer>(total_deaths, total_deaths_pm);
+					if(rec.get("total_deaths")=="") {
+						tabledatapoint = new Pair<Float, Float>(Float.NaN, Float.NaN);
+					}
+					else {
+						total_deaths = Float.parseFloat(rec.get("total_deaths"));
+						total_deaths_pm = Float.parseFloat(rec.get("total_deaths_per_million"));
+						tabledatapoint = new Pair<Float, Float>(total_deaths, total_deaths_pm);	
+					}
+					
 				}
 			}
 		}
@@ -140,9 +152,9 @@ public class Country {
 	// C1: Rate of Vaccination against COVID-19 as of [Date of Interest]
 	public void getVaccinationRate(String dataset)
 	{
-		int total_vaccinated;
-		int rate_of_vaccination;
-		int population;
+		float total_vaccinated;
+		float rate_of_vaccination;
+		float population;
 		System.out.println("getVaccinationRate from " + dataset);
 		for(CSVRecord rec : getFileParser(dataset)) {
 			if (rec.get("location").equals(this.name))
@@ -154,14 +166,14 @@ public class Country {
 				{
 					//3 columns with proper headings of "Country", "Fully Vaccinated", and "Rate of Vaccination"
 					if(rec.get("people_fully_vaccinated")!="") {
-						total_vaccinated = Integer.parseInt(rec.get("people_fully_vaccinated"));
-						population = Integer.parseInt(rec.get("population"));
-						if(population != 0) rate_of_vaccination = (int) ((float)total_vaccinated/population * 100);
+						total_vaccinated = Float.parseFloat(rec.get("people_fully_vaccinated"));
+						population = Float.parseFloat(rec.get("population"));
+						if(population != 0) rate_of_vaccination = total_vaccinated/population * 100;
 						else rate_of_vaccination=0;
-						tabledatapoint = new Pair<Integer, Integer>(total_vaccinated, rate_of_vaccination);
+						tabledatapoint = new Pair<Float, Float>(total_vaccinated, rate_of_vaccination);
 					}
 					else {
-						tabledatapoint = new Pair<Integer, Integer>(0, 0);
+						tabledatapoint = new Pair<Float, Float>(Float.NaN, Float.NaN);
 					}
 				}
 			}
