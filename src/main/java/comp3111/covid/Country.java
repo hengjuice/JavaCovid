@@ -29,6 +29,15 @@ public class Country {
 	LocalDate startDate;
 	LocalDate endDate;
 	Pair<Integer, Integer> tabledatapoint = new Pair<Integer, Integer>(null, null);
+	Pair<LocalDate, Integer> tableDdatapoint = new Pair<LocalDate, Integer>(null, null);
+	
+	Country(String name, String task, String dataset)
+	{
+		this.name = name;
+		this.task = task;
+		this.dataset = dataset;
+		if (task == "D") {getWorstDay(dataset); this.called_function = "getWorstDay";}
+	}
 	
 	Country(String name, LocalDate startDate, String task, String dataset)
 	{
@@ -41,6 +50,7 @@ public class Country {
 		if (task == "A1") {getConfirmedCases(dataset); this.called_function = "getConfirmedCases";}
 		if (task == "B1") {getConfirmedDeaths(dataset); this.called_function = "getConfirmedDeaths";}
 		if (task == "C1") {getVaccinationRate(dataset); this.called_function = "getVaccinationRate";}
+		if (task == "D") {getWorstDay(dataset); this.called_function = "getWorstDay";}
 		
 	}
 	
@@ -247,6 +257,32 @@ public class Country {
 				}
 			}
 		}
+	}
+	
+	// D: Get worst day in history of countries selected according to new_deaths
+	public void getWorstDay(String dataset)
+	{
+		int maxDeaths = 0;
+		LocalDate worstDay = null;
+		System.out.println("getWorstDay from " + dataset);
+		for(CSVRecord rec : getFileParser(dataset)) {
+			if (rec.get("location").equals(this.name))
+			{
+				System.out.println("String Date " +rec.get("date"));
+				String stringdate = rec.get("date");
+				LocalDate date = dateFormatter(stringdate);
+				
+				// get new Deaths
+				String s1 = rec.get("new_deaths");
+				if(!s1.equals(""))
+				{
+					int d = Integer.parseInt(rec.get("new_deaths"));
+					if (d >= maxDeaths) {maxDeaths = d; worstDay = date;}
+				}
+			}
+		}
+		tableDdatapoint = new Pair<LocalDate, Integer>(worstDay, (Integer) maxDeaths);
+		System.out.println("Added:"+tableDdatapoint);
 	}
 	
 }
