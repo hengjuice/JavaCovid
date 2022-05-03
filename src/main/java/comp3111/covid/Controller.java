@@ -593,7 +593,8 @@ public class Controller implements Initializable {
     	LineChartA.getXAxis().setAnimated(false);
     	LineChartA.setTitle("Cumulative Confirmed COVID-19 Cases (per 1M)");
     	}
-    	warningMessageA2.setText("Beware: \"0\" in the chart could represent \"no data\" ");
+    	
+    	warningMessageA2.setText("Beware: If a country doesn't appear, it represents \"no data\" " );
     }
     
     @FXML
@@ -653,26 +654,27 @@ public class Controller implements Initializable {
     	String iDataset = textfieldDataset.getText();
     	
     	for(Object obj : list) {
-    	Country country = new Country(obj.toString(), startDate, endDate, "B2" , iDataset);
-    	
-    	System.out.println(country.name);
-    	
-    	Series<String, Number> series = new XYChart.Series<String, Number>();
-    	
-    	for (Pair<LocalDate, Float> dp : country.chartdatapoints)
-    	{
-    		System.out.println("Adding datapoint into chart" + dp.getKey().toString());
-    		series.getData().add(new XYChart.Data<String, Number>(dp.getKey().toString(), dp.getValue()));
+	    	Country country = new Country(obj.toString(), startDate, endDate, "B2" , iDataset);
+	    	
+	    	System.out.println(country.name);
+	    	
+	    	Series<String, Number> series = new XYChart.Series<String, Number>();
+	    	
+	    	for (Pair<LocalDate, Float> dp : country.chartdatapoints)
+	    	{
+	    		System.out.println("Adding datapoint into chart" + dp.getKey().toString());
+	    		series.getData().add(new XYChart.Data<String, Number>(dp.getKey().toString(), dp.getValue()));
+	    	}
+	    	
+	    	series.setName(country.name);
+	//    	
+	    	LineChartB.getData().add(series);
+	    	LineChartB.getXAxis().setLabel("Date");
+	    	LineChartB.getYAxis().setLabel("Cumulative Deaths");
+	    	LineChartB.getXAxis().setAnimated(false);
+	    	LineChartB.setTitle("Cumulative Confirmed COVID-19 Deaths (per 1M)");
     	}
-    	series.setName(country.name);
-//    	
-    	LineChartB.getData().add(series);
-    	LineChartB.getXAxis().setLabel("Date");
-    	LineChartB.getYAxis().setLabel("Cumulative Deaths");
-    	LineChartB.getXAxis().setAnimated(false);
-    	LineChartB.setTitle("Cumulative Confirmed COVID-19 Deaths (per 1M)");
-    	}
-    	warningMessageB2.setText("Beware: \"0\" in the chart could represent \"no data\" ");
+    	warningMessageB2.setText("Beware: If a country doesn't appear, it represents \"no data\" " );
 
     }
     
@@ -749,7 +751,7 @@ public class Controller implements Initializable {
     	LineChartC.getXAxis().setAnimated(false);
     	LineChartC.setTitle("Cumulative Rate of Vaccination against COVID-19");
     	}
-    	warningMessageC2.setText("Beware: \"0\" in the chart could represent \"no data\" ");
+    	warningMessageC2.setText("Beware: If a country doesn't appear, it represents \"no data\" " );
     }
 }
 
