@@ -593,7 +593,7 @@ public class Controller implements Initializable {
     	LineChartA.getXAxis().setAnimated(false);
     	LineChartA.setTitle("Cumulative Confirmed COVID-19 Cases (per 1M)");
     	}
-    	warningMessageA2.setText("Beware: \"0\" in the chart could represent \"no data\" ");
+    	warningMessageA2.setText("Beware: \"0\" or \"no line\" in the chart could represent \"no data\" ");
     }
     
     @FXML
@@ -672,7 +672,7 @@ public class Controller implements Initializable {
     	LineChartB.getXAxis().setAnimated(false);
     	LineChartB.setTitle("Cumulative Confirmed COVID-19 Deaths (per 1M)");
     	}
-    	warningMessageB2.setText("Beware: \"0\" in the chart could represent \"no data\" ");
+    	warningMessageB2.setText("Beware: \"0\" or \"no line\" in the chart could represent \"no data\" ");
 
     }
     
@@ -749,7 +749,7 @@ public class Controller implements Initializable {
     	LineChartC.getXAxis().setAnimated(false);
     	LineChartC.setTitle("Cumulative Rate of Vaccination against COVID-19");
     	}
-    	warningMessageC2.setText("Beware: \"0\" in the chart could represent \"no data\" ");
+    	warningMessageC2.setText("Beware: \"0\" or \"no line\" in the chart could represent \"no data\" ");
     }
 }
 
