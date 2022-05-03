@@ -15,7 +15,10 @@ import edu.duke.*;
  * 
  */
 public class DataAnalysis {
- 
+	/** Constructs a CSV parser
+	 * @param  dataset  the csv dataset as a string
+	 * @return  the CSV parser object from the dataset
+	 */
 	public static CSVParser getFileParser(String dataset) {
 	     FileResource fr = new FileResource("dataset/" + dataset);
 	     return fr.getCSVParser(true);
@@ -109,7 +112,10 @@ public class DataAnalysis {
 			
 			return oReport;
 	 }*/
-	 
+	/** Constructs an array of all countries' names
+	 * @param  dataset  the csv dataset as a string
+	 * @return  An array of all the countries as strings
+	 */
 	 public static ArrayList<String> allCountriesArray(String dataset) {
 		 
 		 ArrayList<String> countries = new ArrayList<String>();

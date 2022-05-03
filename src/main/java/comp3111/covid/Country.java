@@ -73,7 +73,10 @@ public class Country {
 	// Three Types of Data
 	
 	
-
+	/** Formats a date given as a string into a LocalDate
+	 * @param  stringdate  Date as a string
+	 * @return  Date as a LocalDate
+     */
 	public LocalDate dateFormatter(String stringdate)
 	{
 		if(stringdate.contains("/"))
@@ -94,8 +97,9 @@ public class Country {
 		
 	}
 
-	
-	// A1: Number of Confirmed COVID-19 Cases as of [Date of Interest]
+	/** Gets the Number of Confirmed COVID-19 Cases according to date of interest and adds to country's datapoints
+	 * @param  dataset  the csv dataset
+     */
 	public void getConfirmedCases(String dataset)
 	{
 		float total_cases;
@@ -122,7 +126,9 @@ public class Country {
 			}
 		}
 	}
-	// B1: Number of Confirmed COVID-19 Deaths as of [Date of Interest]
+	/** Gets the vaccination rate according to date of interest and adds to country's datapoints
+	 * @param  dataset  the csv dataset
+     */
 	public void getConfirmedDeaths(String dataset)
 	{
 		float total_deaths, total_deaths_pm;
@@ -149,7 +155,9 @@ public class Country {
 			}
 		}
 	}
-	// C1: Rate of Vaccination against COVID-19 as of [Date of Interest]
+	/** Gets the Rate of Vaccination against COVID-19 according to date of interest and adds to country's datapoints
+	 * @param  dataset  the csv dataset
+     */
 	public void getVaccinationRate(String dataset)
 	{
 		float total_vaccinated;
@@ -181,7 +189,7 @@ public class Country {
 	}
 	
 	
-	/** Gets the cumulative confirmed cases per 1M and adds to country's datapoints
+	/** Gets the cumulative confirmed cases per 1M according to dates of interest and adds to country's datapoints
 	 * @param  dataset  the csv dataset
      */
 	// A2: Cumulative Confirmed COVID-19 Cases (per 1M)
@@ -208,7 +216,7 @@ public class Country {
 		}
 	}
 	
-	/** Gets the cumulative confirmed deaths per 1M and adds to country's datapoints
+	/** Gets the cumulative confirmed deaths per 1M according to dates of interest and adds to country's datapoints
 	 * @param  dataset  the csv dataset
      */
 	// B2: Cumulative Confirmed COVID-19 Deaths (per 1M)
@@ -234,7 +242,7 @@ public class Country {
 			}
 		}
 	}
-	/** Gets the cumulative vaccinations per 1M and adds to country's datapoints
+	/** Gets the cumulative vaccinations per 1M according to dates of interest and adds to country's datapoints
 	 * @param  dataset  the csv dataset
      */
 	// C2: Cumulative Rate of Vaccination against COVID-19
