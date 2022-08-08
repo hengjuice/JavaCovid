@@ -1,14 +1,9 @@
-# COMP3111 S2022 Team 23
+# Covid Data Visualiser
 | <a>https://github.com/hengjuice/JavaCovid</a>
 ## 1. Forrest
-email: zfjiang | github: Forrest-J | dev branch: forrest_dev </br> Task A1 & Task A2
-
+email: zfjiang | github: Forrest-J | dev branch: forrest_dev </br> 
 ## 2. Anna
-email: alsthumann | github: AnnaThu | dev branch: anna_dev </br> Task C1 & Task C2
+email: alsthumann | github: AnnaThu | dev branch: anna_dev </br> 
 ## 3. Jiu Xiao
-email: jxheng | github: hengjuice | dev branch: Jiu_dev </br> Task B1 & Task B2
+email: jxheng | github: hengjuice | dev branch: Jiu_dev </br> 
 
-
-### Helpful Links
-#### TableView and TableColumn
-https://www.youtube.com/watch?v=fnU1AlyuguE 
